@@ -1,0 +1,668 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>扩展开发 - shanliu blog</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../rust/SUMMARY.html"><strong aria-hidden="true">1.</strong> RUST笔记</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../rust/base.html"><strong aria-hidden="true">1.1.</strong> 一些概念</a></li><li class="chapter-item expanded "><a href="../rust/trait.html"><strong aria-hidden="true">1.2.</strong> Trait</a></li><li class="chapter-item expanded "><a href="../rust/mod.html"><strong aria-hidden="true">1.3.</strong> mod</a></li><li class="chapter-item expanded "><a href="../rust/async.html"><strong aria-hidden="true">1.4.</strong> async</a></li><li class="chapter-item expanded "><a href="../rust/enum.html"><strong aria-hidden="true">1.5.</strong> enum</a></li><li class="chapter-item expanded "><a href="../rust/collections.html"><strong aria-hidden="true">1.6.</strong> collections</a></li><li class="chapter-item expanded "><a href="../rust/variable.html"><strong aria-hidden="true">1.7.</strong> variable</a></li><li class="chapter-item expanded "><a href="../rust/string-less-than-greater-than-number.html"><strong aria-hidden="true">1.8.</strong> string&lt;-&gt;number</a></li><li class="chapter-item expanded "><a href="../rust/ownership.html"><strong aria-hidden="true">1.9.</strong> ownership</a></li><li class="chapter-item expanded "><a href="../rust/lifetime.html"><strong aria-hidden="true">1.10.</strong> lifetime</a></li><li class="chapter-item expanded "><a href="../rust/string.html"><strong aria-hidden="true">1.11.</strong> string</a></li><li class="chapter-item expanded "><a href="../rust/c-greater-than-rust.html"><strong aria-hidden="true">1.12.</strong> c&lt;-&gt;rust</a></li><li class="chapter-item expanded "><a href="../rust/creat.html"><strong aria-hidden="true">1.13.</strong> creat</a></li><li class="chapter-item expanded "><a href="../rust/macro.html"><strong aria-hidden="true">1.14.</strong> macro_rules</a></li><li class="chapter-item expanded "><a href="../rust/proc-macro.html"><strong aria-hidden="true">1.15.</strong> proc-macro</a></li></ol></li><li class="chapter-item expanded "><a href="../cpp/SUMMARY.html"><strong aria-hidden="true">2.</strong> C&amp;CPP笔记</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../cpp/syntax.html"><strong aria-hidden="true">2.1.</strong> 语法</a></li><li class="chapter-item expanded "><a href="../cpp/debug.html"><strong aria-hidden="true">2.2.</strong> 调试与错误</a></li><li class="chapter-item expanded "><a href="../cpp/stdarg.h.html"><strong aria-hidden="true">2.3.</strong> 不定参数</a></li><li class="chapter-item expanded "><a href="../cpp/za-xiang.html"><strong aria-hidden="true">2.4.</strong> 杂项</a></li><li class="chapter-item expanded "><a href="../cpp/zi-fu-chuan.html"><strong aria-hidden="true">2.5.</strong> 字符串</a></li><li class="chapter-item expanded "><a href="../cpp/socket.html"><strong aria-hidden="true">2.6.</strong> 网络</a></li><li class="chapter-item expanded "><a href="../cpp/wen-jian.html"><strong aria-hidden="true">2.7.</strong> 文件</a></li><li class="chapter-item expanded "><a href="../cpp/jin-cheng.html"><strong aria-hidden="true">2.8.</strong> 进程</a></li><li class="chapter-item expanded "><a href="../cpp/pthread.html"><strong aria-hidden="true">2.9.</strong> 线程</a></li><li class="chapter-item expanded "><a href="../cpp/xin-hao.html"><strong aria-hidden="true">2.10.</strong> 信号</a></li><li class="chapter-item expanded "><a href="../cpp/guan-dao.html"><strong aria-hidden="true">2.11.</strong> 管道</a></li><li class="chapter-item expanded "><a href="../cpp/shi-jian.html"><strong aria-hidden="true">2.12.</strong> 时间</a></li><li class="chapter-item expanded "><a href="../cpp/dong-tai-jia-zai-ku.html"><strong aria-hidden="true">2.13.</strong> 动态加载库</a></li><li class="chapter-item expanded "><a href="../cpp/chang-yong-suan-fa.html"><strong aria-hidden="true">2.14.</strong> 常用算法</a></li><li class="chapter-item expanded "><a href="../cpp/gcchun-bian-hui-bian.html"><strong aria-hidden="true">2.15.</strong> C调用汇编</a></li><li class="chapter-item expanded "><a href="../cpp/hui-bian-ji-cun-qi.html"><strong aria-hidden="true">2.16.</strong> 汇编寄存器</a></li><li class="chapter-item expanded "><a href="../cpp/hui-bian-chang-yong-zhi-ling.html"><strong aria-hidden="true">2.17.</strong> 汇编常用指令</a></li><li class="chapter-item expanded "><a href="../cpp/jin-cheng-du-xie-wen-jian-suo.html"><strong aria-hidden="true">2.18.</strong> 进程读写文件锁</a></li><li class="chapter-item expanded "><a href="../cpp/phpzhong-jiyu-atomic-de-zi-xuan-suo-shi-xian.html"><strong aria-hidden="true">2.19.</strong> PHP中基于atomic的自旋锁实现</a></li><li class="chapter-item expanded "><a href="../cpp/chang-liang-zi-fu-chuan-pi-liang-ying-she.html"><strong aria-hidden="true">2.20.</strong> PHP中常量字符串批量映射</a></li><li class="chapter-item expanded "><a href="../cpp/tcpudpxie-yi-xiang-jie.html"><strong aria-hidden="true">2.21.</strong> TCP/UDP包示例</a></li><li class="chapter-item expanded "><a href="../cpp/xi-tong-diao-yong-zhong-ding-yi.html"><strong aria-hidden="true">2.22.</strong> 系统函数重定义</a></li><li class="chapter-item expanded "><a href="../cpp/bit-op.html"><strong aria-hidden="true">2.23.</strong> 加减乘除位运算</a></li></ol></li><li class="chapter-item expanded "><a href="../other/SUMMARY.html"><strong aria-hidden="true">3.</strong> JS和其他笔记</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../other/react-native.html"><strong aria-hidden="true">3.1.</strong> react-native</a></li><li class="chapter-item expanded "><a href="../other/rxjs.html"><strong aria-hidden="true">3.2.</strong> rxjs</a></li><li class="chapter-item expanded "><a href="../other/vim.html"><strong aria-hidden="true">3.3.</strong> vim</a></li><li class="chapter-item expanded "><a href="../other/css-flex.html"><strong aria-hidden="true">3.4.</strong> css flex</a></li><li class="chapter-item expanded "><a href="../other/docker.html"><strong aria-hidden="true">3.5.</strong> docker</a></li><li class="chapter-item expanded "><a href="../other/es6.html"><strong aria-hidden="true">3.6.</strong> es6</a></li><li class="chapter-item expanded "><a href="../other/react.html"><strong aria-hidden="true">3.7.</strong> react</a></li></ol></li><li class="chapter-item expanded "><a href="../php/SUMMARY.html"><strong aria-hidden="true">4.</strong> PHP笔记</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../php/composer.html"><strong aria-hidden="true">4.1.</strong> composer</a></li><li class="chapter-item expanded "><a href="../php/ext.html" class="active"><strong aria-hidden="true">4.2.</strong> 扩展开发</a></li><li class="chapter-item expanded "><a href="../php/php7-feature.html"><strong aria-hidden="true">4.3.</strong> php7一些特性</a></li><li class="chapter-item expanded "><a href="../php/sort.html"><strong aria-hidden="true">4.4.</strong> php快速排序</a></li><li class="chapter-item expanded "><a href="../php/larvale.html"><strong aria-hidden="true">4.5.</strong> larvale</a></li><li class="chapter-item expanded "><a href="../php/re2candbison.html"><strong aria-hidden="true">4.6.</strong> re2c&amp;bison</a></li><li class="chapter-item expanded "><a href="../php/rabbitmq.html"><strong aria-hidden="true">4.7.</strong> rabbitmq</a></li><li class="chapter-item expanded "><a href="../php/proto.html"><strong aria-hidden="true">4.8.</strong> proto</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">shanliu blog</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/shanliu/blog" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="ext"><a class="header" href="#ext">ext</a></h1>
+<blockquote>
+<p>export USE_ZEND_ALLOC=0 #禁用Zend内存管理</p>
+<p>export ZEND_DONT_UNLOAD_MODULES=1 #正确显示extension的内存堆栈</p>
+<p>valgrind –leak-check=full –show-reachable=yes php test.php #valgrind 检测内存泄漏</p>
+</blockquote>
+<ol>
+<li>
+<p>变量操作(常量)</p>
+<p>a. 设置变量 ZVAL_*系列函数;例:</p>
+<pre><code> zval t;
+ ZVAL_STRING(t,&quot;10&quot;,2);
+</code></pre>
+<p>b. 获取变量 Z_* 系列函数_<br />
+<em>c. 获取变量指针 ZP 系列函数</em><br />
+<em>d. 获取变量指针的指针 Z</em>_PP 系列函数，例:</p>
+<pre><code> Z_STRVAL(t);
+ Z_STRLEN(t);
+</code></pre>
+<p>e. 变量类型转换 convert_to_* 系列函数,例:</p>
+<pre><code> convert_to_long_ex(t);
+</code></pre>
+<p>f. 获取变量类型 Z_TYPE Z_TYPE_P Z_TYPE_PP 可以同 IS_* 系列常量对比,例:</p>
+<pre><code> if(Z_TYPE_P(filehandle)!=IS_LONG)
+     php_printf(&quot;this is long type!&quot;);
+</code></pre>
+<p>g. 申请变量的内存</p>
+<pre><code> //一般,宏: 
+ ALLOC_ZVAL(zv);
+ MAKE_STD_ZVAL(zv)
+ //用完释放 
+ FREE_ZVAL(zv);//等宏
+ //释放变量内存 
+ zval_dtor(zval);
+ zval_ptr_dtor(&amp;zval); 
+ FREE_ZVAL(zval);
+ //注意:FREE_ZVAL 只释放zval结构体内存,而zval_dtor会释放zval变量及value指针内存
+</code></pre>
+<p>h. 打印普通变量</p>
+<pre><code>  php_printf(&quot;hi function!&quot;);
+  //返回输出流,可以使用 PHPWRITE(str, str_len) 继续写
+  //打印zval变量 
+  php_var_dump(zval **struc, int level TSRMLS_DC);
+  //var_dump C实现 在:ext/standard/php_var.h
+  zend_print_zval_r(zval *expr, int indent TSRMLS_DC) 
+  //print_r C实现 在Zend核心里
+</code></pre>
+<p>i. 字符串变量生成函数</p>
+<pre><code>   spprintf(char **pbuf, size_t max_len, const char *format, ...); 用完释放efree();
+</code></pre>
+<p>j. 申请内存并复制字符串的副本</p>
+<pre><code>   estrdup(&amp;a)；
+   estrndup(&amp;a,10);
+</code></pre>
+<p>k. 变量内存申请:</p>
+<pre><code>  emalloc(size);
+  efree(ptr);
+  //不要用malloc 除非你能明确释放掉
+</code></pre>
+<p>l. 定义常量:</p>
+<pre><code>  REGISTER_*_CONSTANT(name, str, flags)//系列函数 
+  flags CONST_* 系列宏
+</code></pre>
+<p>m. 复制变量</p>
+<pre><code>  MAKE_COPY_ZVAL(ppzv, pzv)
+  //申请内存并复制
+  COPY_PZVAL_TO_ZVAL
+  //复制一个zval指向同类型的zval
+</code></pre>
+</li>
+<li>
+<p>全局C变量辅助宏:</p>
+<pre><code> EG(v);//全局变量 executor_globals 如$_GLOBALS[EG(symbol_table),地址:EG(active_symbol_table)
+ PG(v);//核心变量 php_core_globals 如:$_GET $_POST .. PG(http_globals)[TRACK_VARS_*],INI信息
+ SG(v);//SAPI变量 请求数据 sapi_globals_struct 如:HTTP原始请求变量 sapi_request_info
+ CG(v);//编译变量 compiler_globals 可以得到函数表,类表
+ EX(v);//当前执行数据 zend_execute_data 可以获取到当前执行的函数,类,OPCODE等
+ OG(v);//输出变量 output_globals
+</code></pre>
+</li>
+<li>
+<p>函数,分5类 ZEND_*_FUNCTION 以下为C定义内置函数</p>
+<p>函数参数说明 FOR C:</p>
+<pre><code> int ht, zval *return_value, zval **return_value_ptr, zval *this_ptr, int return_value_used 
+ ht 参数个数,但不能直接使用,该用 ZEND_NUM_ARGS()获取
+ return_value 函数返回zval
+ return_value_ptr 返回值的指针,但想控制返回值的内容,不是直接返回返回值时候用到,如参数引用实现.
+ this_ptr 如果当前方法是一个对象的方法,此值指向该方法指向的对象,不能直接使用,使用 getThis() 函数
+ return_value_used 返回值有没有被使用
+ 例:
+ int argc = ZEND_NUM_ARGS();
+ char *str=NULL;
+ int strlen;
+ //次方法用于获取函数参数
+ //注意: O 参数须 &amp;object zval 指针 和指明 zend_class_entry * 的指针
+ //      s 参数需要 &amp;str char * 指针 和 &amp;strlen int 长度指针
+ if (zend_parse_parameters(argc TSRMLS_CC, &quot;s|s&quot;,&amp;str,&amp;strlen) ==FAILURE) {
+   return;
+ }
+ //此方法一般用于类的静态方法,当函数映射类方法的时候.
+ //会校验getThis()的类和object是否一个类zend_class_entry
+ if (zend_parse_method_parameters(ZEND_NUM_ARGS() TSRMLS_CC, getThis(), &quot;Os&quot;, &amp;object, date_ce_date,&amp;str,&amp;strlen) == FAILURE) {
+     RETURN_FALSE;
+ }
+</code></pre>
+<p>关于返回</p>
+<pre><code> 修改 return_value_ptr 指针指向要用ALLOC_ZVAL_*宏申请内存,
+ 参考:http://www.walu.cc/phpbook/6.1.md
+ 返回的宏 RETURN_*系列函数,资源用 ZEND_REGISTER_RESOURCE 
+ RETURN_ZVAL(); 返回zval结构
+     如果是申请的内存,RETURN_ZVAL(zv, copy, dtor) copy 0 dtor 0
+     如果是堆栈内存 RETURN_ZVAL(zv, copy, dtor) copy 1 dtor 0
+</code></pre>
+</li>
+<li>
+<p>数组与HASH表 1. zvalue_value 是个union 数组时为 hashtable 2. hashtable 表有很对对应的处理函数:zend_hash系列函数 3. 数组上的HASHTABLE一般不直接操作,通过add__系列函数处理 4. hashtable 内存申请 ALLOC_HASHTABLE 等宏处理,用完释放FREE_HASHTABLE 5. 数组初始化也不要用直接处理hashtable,使用 array_init 处理</p>
+</li>
+<li>
+<p>资源变量 1. 需要使用资源变量须先得到一个资源列表</p>
+<p>参数: 1. 请求资源,每次请求会清空此请求的资源列表 2. 永久资源,服务启动后永久保存 3. 显示资源名 4. 内部管理参数,忽略</p>
+<pre><code> le_myfile = zend_register_list_destructors_ex(myfile_dtor,NULL,&quot;standard-c-file&quot;, module_number);
+ static void myfile_dtor(zend_rsrc_list_entry *rsrc TSRMLS_DC){
+      FILE *fp = (FILE *) rsrc-&gt;ptr;//转换指定类型,方便以后操作
+      fclose(fp);
+ }
+</code></pre>
+<ol>
+<li>
+<p>把资源注册进资源列表,并设置return_value</p>
+<pre><code>int r=ZEND_REGISTER_RESOURCE(return_value, fp, le_myfile);
+</code></pre>
+</li>
+<li>
+<p>查询资源 filehandle 为资源zval</p>
+<pre><code>ZEND_FETCH_RESOURCE(fp, FILE *, &amp;filehandle, -1, &quot;standard-c-file&quot;,le_myfile);
+if (fp == NULL){
+RETURN_FALSE;
+}
+</code></pre>
+</li>
+<li>
+<p>删除资源 filehandle 为资源zval</p>
+<pre><code>if (zend_list_delete(Z_RESVAL_P(filehandle)) == FAILURE) {
+ RETURN_FALSE;
+}
+</code></pre>
+</li>
+</ol>
+</li>
+<li>
+<p>全局函数</p>
+<pre><code>zend_function_entry test_functions[] =
+{
+   //参数 : 函数名 
+   ZEND_FE(myecho, NULL)
+   ZEND_FE_END
+};
+//注册到模块中
+zend_module_entry php_test_module_entry = {
+#if ZEND_MODULE_API_NO &gt;= 20010901
+   STANDARD_MODULE_HEADER,
+#endif
+   &quot;my test ext&quot;,//模块名
+   test_functions,//函数列表
+   NULL,
+   NULL,
+   NULL,
+   NULL,
+   PHP_MINFO(php_test),//模块介绍
+#if ZEND_MODULE_API_NO &gt;= 20010901
+   &quot;1.6.0&quot;, //版本
+#endif
+   STANDARD_MODULE_PROPERTIES
+};
+</code></pre>
+<p>//函数实现,参考 3.函数部分</p>
+<pre><code> PHP_FUNCTION(myecho){}
+</code></pre>
+<p>用户函数调用: 参数: function_table 函数表,全局从&amp;CG(function_table)得到 对象,如果该函数是对象的方法,没有传NULL 函数名 返回值存储 zval指针, 参数数量 参数数组</p>
+<pre><code> call_user_function(HashTable *function_table, zval **object_pp, zval *function_name, zval *retval_ptr, zend_uint param_count, zval *params[] TSRMLS_DC);
+</code></pre>
+</li>
+<li>
+<p>类的实现</p>
+<p>结构:zend_class_entry 分两种 ZEND_INTERNAL_CLASS 和 ZEND_USER_CLASS</p>
+<pre><code> //访问权限控制:ZEND_ACC_*系列宏
+ //类方法定义
+ //参数:类名 方法名 
+ ZEND_METHOD( myclass , public_method )
+ {
+     //获取参数方法,参考:3.函数 部分
+     if (zend_parse_method_parameters(ZEND_NUM_ARGS() TSRMLS_CC, getThis(), &quot;s&quot;, &amp;str,&amp;strlen) == FAILURE) {
+         RETURN_FALSE;
+     }
+     php_printf(&quot;hi function!&quot;);
+ }
+ //注册到函数列表
+ static zend_function_entry myclass_method[]={
+     //参数:类名 方法名 静态方法加 ZEND_ACC_STATIC
+     ZEND_ME(myclass,    public_method,    NULL,    ZEND_ACC_PUBLIC)
+     {NULL,NULL,NULL}
+ };
+ zend_class_entry ce;
+ zend_class_entry *myclass_ce;
+ //参数:初始结构 类名 方法列表
+ INIT_CLASS_ENTRY(ce,&quot;myclass&quot;,myclass_method);
+ //此方法会根据ce拷贝生成一个zend_class_entry并挂载到类列表中
+ zend_register_internal_class(&amp;ce TSRMLS_CC);
+ //添加类的属性
+ //参数:类指针 属性名 属性名长度 属性访问权限 : zend_declare_property_* 系列函数
+ zend_declare_property_null(myclass_ce, &quot;public_var&quot;, strlen(&quot;public_var&quot;), ZEND_ACC_PUBLIC TSRMLS_CC);
+ //
+ //定义类常量:
+ //参数:类指针 属性名 属性名长度 属性访问权限 : zend_declare_class_constant* 系列函数
+ zend_declare_class_constant_null(myclass_ce, &quot;aaa&quot;, 3 TSRMLS_DC);
+ //
+ //读取类静态属性
+     ZEND_API zval *zend_read_static_property(
+         zend_class_entry *scope, 
+         char *name, 
+         int name_length, 
+         //属性不存在是否抛出 notice
+         zend_bool silent TSRMLS_DC
+     );
+ 更新类静态属性
+     ZEND_API int zend_update_static_property(
+         zend_class_entry *scope, 
+         char *name, 
+         int name_length, 
+         zval *value TSRMLS_DC
+     );
+ 其他封装的快捷函数 zend_update_static_property_*
+</code></pre>
+</li>
+<li>
+<p>接口 结构也是: zend_class_entry</p>
+<pre><code> static zend_function_entry i_myinterface_method[]={
+     //注意这里的null指的是arg_info,具体可以参考:参数 arg_info 的定义
+     ZEND_ABSTRACT_ME(i_myinterface, hello, NULL) 
+     ZEND_FE_END
+ };
+ //定义及初始化
+ zend_class_entry ce;
+ INIT_CLASS_ENTRY(ce, &quot;i_myinterface&quot;, i_myinterface_method);
+ i_myinterface_ce = zend_register_internal_interface(&amp;ce TSRMLS_CC);
+</code></pre>
+</li>
+<li>
+<p>继承及接口实现 1.实现接口: 写完类,接口后添加: 参数: 类指针 ,实现接口数量,接口指针…</p>
+<pre><code>     zend_class_implements(class_ce TSRMLS_CC,1,myinterface_ce);
+</code></pre>
+<p>2.实现继承: 注册类时候使用: zend_register_internal_class_ex 参数: 类指针 父类指针 父类名</p>
+<pre><code>     myclass_ce = zend_register_internal_class_ex(&amp;ce,parent_class_ce,&quot;parent_class&quot; TSRMLS_CC);
+</code></pre>
+</li>
+<li>
+<p>对象 zend_object_value</p>
+<p>结构:</p>
+<pre><code>typedef struct _zend_object_value {
+    //unsigned int类型，EG(objects_store).object_buckets的索引
+    zend_object_handle handle;
+    zend_object_handlers *handlers;
+} zend_object_value;
+</code></pre>
+<p>创建对象:</p>
+<pre><code>zval *obj;
+MAKE_STD_ZVAL(obj);
+object_init_ex(obj, zend_class_entry 类名 );
+//object_init(obj) 空对象
+</code></pre>
+<p>读取属性:</p>
+<pre><code>ZEND_API zval *zend_read_property(
+    zend_class_entry *scope, 
+    zval *object, 
+    char *name, 
+    int name_length, 
+    //属性不存在是否抛出 notice
+    zend_bool silent TSRMLS_DC
+);
+</code></pre>
+<p>更新属性:</p>
+<pre><code>ZEND_API int zend_update_static_property(
+    zend_class_entry *scope, 
+    char *name, 
+    int name_length, 
+    zval *value TSRMLS_DC
+);
+</code></pre>
+<p>其他封装的快捷函数 zend_update_property_* 调用方法:</p>
+<pre><code>ZEND_API zval* zend_call_method(zval **object_pp, zend_class_entry *obj_ce, zend_function **fn_proxy, const char *function_name, int function_name_len, zval **retval_ptr_ptr, int param_count, zval* arg1, zval* arg2 TSRMLS_DC);
+zend_call_method_with_0_params(obj, obj_ce, fn_proxy, function_name, retval)
+zend_call_method_with_1_params(&amp;this_zval,myclass_ce,NULL,&quot;hello&quot;,NULL);
+</code></pre>
+</li>
+<li>
+<p>常用结构及宏解释:</p>
+<pre><code>PHP_FN(name) 函数名生成
+PHP_MN(name) 方法名生成
+ZEND_NAMED_FUNCTION(name) 生成指定名的函数 一般用
+PHP_FUNCTION(name) 函数声明
+ZEND_METHOD(classname, name) 类方法声明
+//
+zend_function_entry    数组用于声明模块或类的成员函数情况
+生成zend_function_entry的元素配套宏:
+    //注册全局的函数
+    //参数:函数名 参数
+    PHP_FE(name, arg_info) 
+    //注册类的函数
+    //参数:类名 方法名 参数 访问权限控制
+    PHP_ME(classname, name, arg_info, flags) 
+    //映射一个函数为类的方法
+    //参数:方法名 函数名 参数 访问权限控制 
+    //用此宏须在函数体内进行类校验,zend_parse_method_parameters 
+    //调用时会把当前对象作为第一个参数传递给函数
+    PHP_ME_MAPPING(name, func_name, arg_types, flags)
+    //注册类的抽象函数,类和接口都用这个
+    //参数:类名 方法名 参数
+    PHP_ABSTRACT_ME(classname, name, arg_info) 
+    //结束标记
+    PHP_FE_END
+</code></pre>
+</li>
+<li>
+<p>参数 arg_info 的定义</p>
+<pre><code>//一般情况下不需要定义参数,除非你希望PHP般你检查参数正确性,比如接口方法
+//生成arg_info的宏,以arg_say_hello为例:
+//参数:zend_arg_info 名,参数至少前N个
+ZEND_BEGIN_ARG_INFO(arg_say_hello, 0)
+//参数:是否设置为引用,参数名
+//ZEND_ARG_* 系列函数还可以声明对象等
+ZEND_ARG_INFO(0, name)
+ZEND_END_ARG_INFO()
+//其他介绍
+//name    参数名称
+//name_len    参数名称字符串长度
+//class_name    当参数类型为类时，指定类名称
+//class_name_len    类名称字符串长度
+//array_type_hint    标识参数类型是否为数组
+//allow_null    是否允许设置为空
+//pass_by_ref    是否设置为引用，即使用&amp;操作符
+//return_reference    标识函数将重写return_value_ptr，后面介绍函数返回值时再做介绍
+//required_num_args    设置函数被调用时，传递参数至少为前N个，当设置为-1时，必须传递所有参数
+</code></pre>
+</li>
+<li>
+<p>目录结构</p>
+<pre><code>ext/ 扩展
+ext/standard PHP内置函数
+Zend/ PHP核心
+Zend/zend_builtin_functions.c 核心函数 还有常用的辅助函数
+sapi/ sapi接口实现
+main/ 对外编写接口
+</code></pre>
+</li>
+<li>
+<p>流程及扩展备注</p>
+<pre><code>zend_module_entry php_test_module_entry = {
+    STANDARD_MODULE_HEADER,
+    &quot;my test ext&quot;,                /* 模块名称 */
+    test_functions,                /* 模块函数 */
+    PHP_MINIT(test),            /* 模块启动 */
+    PHP_MSHUTDOWN(test),        /* 模块关闭 */
+    PHP_RINIT(test),            /* 请求开始 */
+    PHP_RSHUTDOWN(test),        /* 请求完成 */
+    PHP_MINFO(php_test),        /* 模块信息 */
+    &quot;1.6.0&quot;,                     /* 模块版本 */
+    //还可以增加全局变量注册部分,参考:16.全局变量
+    STANDARD_MODULE_PROPERTIES
+};
+ZEND_GET_MODULE(php_test);
+PHP_MINIT_FUNCTION(test)
+{
+    //此阶段注册类等
+    //注册INI
+    //REGISTER_INI_ENTRIES();
+    return SUCCESS;
+}
+PHP_RINIT_FUNCTION(test){
+    return SUCCESS;
+}
+PHP_RSHUTDOWN_FUNCTION(test){
+    return SUCCESS;
+}
+PHP_MSHUTDOWN_FUNCTION(test)
+{
+    UNREGISTER_INI_ENTRIES();
+    return SUCCESS;
+}
+</code></pre>
+</li>
+<li>
+<p>配置设置与获取</p>
+<pre><code>PHP_INI_BEGIN()
+    PHP_INI_ENTRY(&quot;myini&quot;,&quot;bbb&quot;,PHP_INI_ALL, NULL)
+PHP_INI_END()
+//一般在 PHP_MINIT_FUNCTION 注册
+PHP_MINIT_FUNCTION(test)
+{
+    //***
+    REGISTER_INI_ENTRIES();
+    //***
+}
+//获取配置:
+///INI_* 系列宏
+</code></pre>
+</li>
+<li>
+<p>线程安全的全局变量,并定义获取方法,类似于:EG(v) PG(v) SG(v) 等实现</p>
+<pre><code>//test 一般为模块名,也可以用其他,用模块名号记忆
+//注意:全局变量不跟随请求,请求完成不会重置.
+ZEND_BEGIN_MODULE_GLOBALS(test)
+    int flags;
+ZEND_END_MODULE_GLOBALS(test)
+#ifdef ZTS
+# define YOURGET(v) TSRMG(test_globals_id, zend_test_globals *, v)
+#else
+# define YOURGET(v) (test_globals.v)
+#endif
+//以上为声明部分
+//
+//以下为:初始化及注册到PHP内核中
+ZEND_DECLARE_MODULE_GLOBALS(test);
+//全局可用
+//ZEND_EXTERN_MODULE_GLOBALS(test);
+zend_module_entry php_test_module_entry = {
+    STANDARD_MODULE_HEADER,
+    &quot;my test ext&quot;,
+    test_functions,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NO_VERSION_YET,//以下为开启全局变量时增加
+    PHP_MODULE_GLOBALS(test),//作用:注册到全局变量中
+    PHP_GINIT(test),//全局变量初始化时调用函数,一般为启动PHP时,可为NULL
+    PHP_GSHUTDOWN(test),//全局变量销毁时调用函数,一般为关闭PHP时,可为NULL
+    NULL,
+    STANDARD_MODULE_PROPERTIES_EX //注意:多个EX
+};
+//全局变量注册的回调函数 宏
+static PHP_GINIT_FUNCTION(test)
+{
+    test_globals-&gt;flags = 0;
+}
+static PHP_GSHUTDOWN_FUNCTION(test)
+{
+    //其他操作,如释放申请的内存等
+}
+</code></pre>
+</li>
+<li>
+<p>gdb调试扩展</p>
+<p>PHP编译的时候加上 -–enable-debug 参数 修改config.m4</p>
+<pre><code>if test -z &quot;$PHP_DEBUG&quot; ; then
+   AC_ARG_ENABLE(debug,
+           [--enable-debug compile with debugging system],
+           [PHP_DEBUG=$enableval],[PHP_DEBUG=no]
+   )
+fi
+</code></pre>
+<p>./configure 的时候加入 –enable-debug</p>
+<p>设置 core 的大小</p>
+<pre><code>ulimit -c unlimited
+</code></pre>
+<p>//以下假设php路径在系统的/usr/bin或/usr/local/bin中</p>
+<pre><code>gdb php -c core[core为生成的core文件]
+</code></pre>
+<p>常用调试命令:</p>
+<pre><code>r 运行
+b 设置断点
+set args 设置参数
+n 运行下一步
+c 继续运行
+p 打印
+watch 当变量修改断点
+list  查看代码
+layout src 显示源码
+layout asm 显示汇编
+</code></pre>
+</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../php/composer.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../php/php7-feature.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../php/composer.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../php/php7-feature.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

@@ -1,0 +1,685 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>variable - shanliu blog</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../rust/SUMMARY.html"><strong aria-hidden="true">1.</strong> RUST笔记</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../rust/base.html"><strong aria-hidden="true">1.1.</strong> 一些概念</a></li><li class="chapter-item expanded "><a href="../rust/trait.html"><strong aria-hidden="true">1.2.</strong> Trait</a></li><li class="chapter-item expanded "><a href="../rust/mod.html"><strong aria-hidden="true">1.3.</strong> mod</a></li><li class="chapter-item expanded "><a href="../rust/async.html"><strong aria-hidden="true">1.4.</strong> async</a></li><li class="chapter-item expanded "><a href="../rust/enum.html"><strong aria-hidden="true">1.5.</strong> enum</a></li><li class="chapter-item expanded "><a href="../rust/collections.html"><strong aria-hidden="true">1.6.</strong> collections</a></li><li class="chapter-item expanded "><a href="../rust/variable.html" class="active"><strong aria-hidden="true">1.7.</strong> variable</a></li><li class="chapter-item expanded "><a href="../rust/string-less-than-greater-than-number.html"><strong aria-hidden="true">1.8.</strong> string&lt;-&gt;number</a></li><li class="chapter-item expanded "><a href="../rust/ownership.html"><strong aria-hidden="true">1.9.</strong> ownership</a></li><li class="chapter-item expanded "><a href="../rust/lifetime.html"><strong aria-hidden="true">1.10.</strong> lifetime</a></li><li class="chapter-item expanded "><a href="../rust/string.html"><strong aria-hidden="true">1.11.</strong> string</a></li><li class="chapter-item expanded "><a href="../rust/c-greater-than-rust.html"><strong aria-hidden="true">1.12.</strong> c&lt;-&gt;rust</a></li><li class="chapter-item expanded "><a href="../rust/creat.html"><strong aria-hidden="true">1.13.</strong> creat</a></li><li class="chapter-item expanded "><a href="../rust/macro.html"><strong aria-hidden="true">1.14.</strong> macro_rules</a></li><li class="chapter-item expanded "><a href="../rust/proc-macro.html"><strong aria-hidden="true">1.15.</strong> proc-macro</a></li></ol></li><li class="chapter-item expanded "><a href="../cpp/SUMMARY.html"><strong aria-hidden="true">2.</strong> C&amp;CPP笔记</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../cpp/syntax.html"><strong aria-hidden="true">2.1.</strong> 语法</a></li><li class="chapter-item expanded "><a href="../cpp/debug.html"><strong aria-hidden="true">2.2.</strong> 调试与错误</a></li><li class="chapter-item expanded "><a href="../cpp/stdarg.h.html"><strong aria-hidden="true">2.3.</strong> 不定参数</a></li><li class="chapter-item expanded "><a href="../cpp/za-xiang.html"><strong aria-hidden="true">2.4.</strong> 杂项</a></li><li class="chapter-item expanded "><a href="../cpp/zi-fu-chuan.html"><strong aria-hidden="true">2.5.</strong> 字符串</a></li><li class="chapter-item expanded "><a href="../cpp/socket.html"><strong aria-hidden="true">2.6.</strong> 网络</a></li><li class="chapter-item expanded "><a href="../cpp/wen-jian.html"><strong aria-hidden="true">2.7.</strong> 文件</a></li><li class="chapter-item expanded "><a href="../cpp/jin-cheng.html"><strong aria-hidden="true">2.8.</strong> 进程</a></li><li class="chapter-item expanded "><a href="../cpp/pthread.html"><strong aria-hidden="true">2.9.</strong> 线程</a></li><li class="chapter-item expanded "><a href="../cpp/xin-hao.html"><strong aria-hidden="true">2.10.</strong> 信号</a></li><li class="chapter-item expanded "><a href="../cpp/guan-dao.html"><strong aria-hidden="true">2.11.</strong> 管道</a></li><li class="chapter-item expanded "><a href="../cpp/shi-jian.html"><strong aria-hidden="true">2.12.</strong> 时间</a></li><li class="chapter-item expanded "><a href="../cpp/dong-tai-jia-zai-ku.html"><strong aria-hidden="true">2.13.</strong> 动态加载库</a></li><li class="chapter-item expanded "><a href="../cpp/chang-yong-suan-fa.html"><strong aria-hidden="true">2.14.</strong> 常用算法</a></li><li class="chapter-item expanded "><a href="../cpp/gcchun-bian-hui-bian.html"><strong aria-hidden="true">2.15.</strong> C调用汇编</a></li><li class="chapter-item expanded "><a href="../cpp/hui-bian-ji-cun-qi.html"><strong aria-hidden="true">2.16.</strong> 汇编寄存器</a></li><li class="chapter-item expanded "><a href="../cpp/hui-bian-chang-yong-zhi-ling.html"><strong aria-hidden="true">2.17.</strong> 汇编常用指令</a></li><li class="chapter-item expanded "><a href="../cpp/jin-cheng-du-xie-wen-jian-suo.html"><strong aria-hidden="true">2.18.</strong> 进程读写文件锁</a></li><li class="chapter-item expanded "><a href="../cpp/phpzhong-jiyu-atomic-de-zi-xuan-suo-shi-xian.html"><strong aria-hidden="true">2.19.</strong> PHP中基于atomic的自旋锁实现</a></li><li class="chapter-item expanded "><a href="../cpp/chang-liang-zi-fu-chuan-pi-liang-ying-she.html"><strong aria-hidden="true">2.20.</strong> PHP中常量字符串批量映射</a></li><li class="chapter-item expanded "><a href="../cpp/tcpudpxie-yi-xiang-jie.html"><strong aria-hidden="true">2.21.</strong> TCP/UDP包示例</a></li><li class="chapter-item expanded "><a href="../cpp/xi-tong-diao-yong-zhong-ding-yi.html"><strong aria-hidden="true">2.22.</strong> 系统函数重定义</a></li><li class="chapter-item expanded "><a href="../cpp/bit-op.html"><strong aria-hidden="true">2.23.</strong> 加减乘除位运算</a></li></ol></li><li class="chapter-item expanded "><a href="../other/SUMMARY.html"><strong aria-hidden="true">3.</strong> JS和其他笔记</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../other/react-native.html"><strong aria-hidden="true">3.1.</strong> react-native</a></li><li class="chapter-item expanded "><a href="../other/rxjs.html"><strong aria-hidden="true">3.2.</strong> rxjs</a></li><li class="chapter-item expanded "><a href="../other/vim.html"><strong aria-hidden="true">3.3.</strong> vim</a></li><li class="chapter-item expanded "><a href="../other/css-flex.html"><strong aria-hidden="true">3.4.</strong> css flex</a></li><li class="chapter-item expanded "><a href="../other/docker.html"><strong aria-hidden="true">3.5.</strong> docker</a></li><li class="chapter-item expanded "><a href="../other/es6.html"><strong aria-hidden="true">3.6.</strong> es6</a></li><li class="chapter-item expanded "><a href="../other/react.html"><strong aria-hidden="true">3.7.</strong> react</a></li></ol></li><li class="chapter-item expanded "><a href="../php/SUMMARY.html"><strong aria-hidden="true">4.</strong> PHP笔记</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../php/composer.html"><strong aria-hidden="true">4.1.</strong> composer</a></li><li class="chapter-item expanded "><a href="../php/ext.html"><strong aria-hidden="true">4.2.</strong> 扩展开发</a></li><li class="chapter-item expanded "><a href="../php/php7-feature.html"><strong aria-hidden="true">4.3.</strong> php7一些特性</a></li><li class="chapter-item expanded "><a href="../php/sort.html"><strong aria-hidden="true">4.4.</strong> php快速排序</a></li><li class="chapter-item expanded "><a href="../php/larvale.html"><strong aria-hidden="true">4.5.</strong> larvale</a></li><li class="chapter-item expanded "><a href="../php/re2candbison.html"><strong aria-hidden="true">4.6.</strong> re2c&amp;bison</a></li><li class="chapter-item expanded "><a href="../php/rabbitmq.html"><strong aria-hidden="true">4.7.</strong> rabbitmq</a></li><li class="chapter-item expanded "><a href="../php/proto.html"><strong aria-hidden="true">4.8.</strong> proto</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">shanliu blog</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/shanliu/blog" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <hr />
+<h2 id="变量"><a class="header" href="#变量">变量</a></h2>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>//可以放在代码任何地方,变量不可在最外层
+const var1:i32=1;//常量:非固定内存地址,不可改动
+static mut a:i32=1;//静态变量:固定内存地址,mut为不安全数据,只赋值一次
+let u8=b'z';//u8类型定义
+<span class="boring">}
+</span></code></pre></pre>
+<p>所有权类型仅BOX可以解引用</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let b=Box::new(aa{});//非复制类型
+let c=*b;//b 不在可用
+//默认 Box&lt;T+'static&gt;; 如果T非'static 需主动声明 Box&lt;T+'c&gt;
+<span class="boring">}
+</span></code></pre></pre>
+<p>Deref需返回引用</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl Deref for YOUSTRUCT{
+    fn deref(&amp;self) -&gt; &amp;YOUSTRUCT {
+        &amp;**YOUSTRUCT;
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>不可COPY元素数组初始化</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let c:[Option&lt;Box&lt;i32&gt;&gt;;10]=Default::default();//[None;10];
+<span class="boring">}
+</span></code></pre></pre>
+<p>常用函数说明</p>
+<blockquote>
+<p>borrow|borrow_mut 跟 &amp; | &amp; mut 一致<br />
+Option 的as_ref|as_mut 对包内部数据的包裹内引用,基本类型没这方法_<br />
+<em>Box 的as_ref|as_mut 为得到内部包数据的引用,基本类型没这方法</em><br />
+不可拷贝数据注意所有权问题</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>//as_ref as_mut 同外壳的内部引用[Option] 或 直接对壳内的数据引用[Box]
+let a=Result::&lt;i32,i32&gt;::Ok(1);
+let b=a.as_ref();
+let a=Some(1);
+let b=a.as_ref();
+
+//borrow borrow_mut 轻量级引用[所有类型都实现] 大部分 等于 等于 &amp;
+//某些类型 如 String Box 的 borrow 等于 待壳引用和不带壳引用[取决于返回类型定义] 大于 &amp;
+use std::borrow::{Borrow, BorrowMut};
+let mut a =Result::&lt;i32,i32&gt;::Ok(1);
+let b=a.borrow();
+let b=&amp;a;
+let a=&amp;Some(1);
+let b=a.borrow();
+#[derive(Eq, PartialEq)]
+struct Aa{};
+let a=Aa{};
+assert!(a.borrow()==&amp;a);
+
+
+//示例说明
+let mut a =Some(1);
+let b:&amp;Option&lt;i32&gt;=&amp;a;
+let b:&amp;Option&lt;i32&gt;=a.borrow();//等价于 &amp;a一样
+let b:&amp;mut Option&lt;i32&gt;=&amp;mut a;
+let b:&amp;mut Option&lt;i32&gt;=a.borrow_mut();//等价于 &amp;mut a 一样
+let b:Option&lt;&amp;i32&gt;=a.as_ref();//得到 Option&lt;&amp;i32&gt; 不可变引用
+let b:Option&lt;&amp;mut i32&gt;=a.as_mut();//得到 Option&lt;&amp;i32&gt; 可变引用
+let mut c=Box::new(1);
+let b:&amp;mut Box&lt;i32&gt;=&amp;mut c;//BOX的可变引用
+println!(&quot;{}&quot;,c);
+let b:&amp;mut Box&lt;i32&gt;=c.borrow_mut();//等价于 &amp;mut c
+println!(&quot;{}&quot;,c);
+let b:&amp;i32=c.as_ref();//得到包裹内值引用
+let b:&amp;mut i32=c.as_mut();//得到包裹内值可变引用
+*b=4;//修改可变引用值
+println!(&quot;{}&quot;,c);
+let mut t=*c;//可复制值解包为复制
+t=5;//解引用在修改值
+println!(&quot;{}&quot;,c);
+<span class="boring">}
+</span></code></pre></pre>
+<p>字符串变量</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let o:&amp;'static str = &quot;dddd&quot;;
+    let b=o.to_string();
+    let c=b.as_str();
+    let b1=c.to_string();
+    let c1=b1.as_str();
+    let k=o.as_ptr();
+    let k1=c.as_ptr();
+    let k2=c1.as_ptr();
+    //k != k1 !=k2
+    //每次to_string 都创建新的对象
+    println!(&quot;finish&quot;);
+}
+</code></pre></pre>
+<blockquote>
+<p>借用需要所有权获得 </p>
+</blockquote>
+<pre><code>fn aaaa(mut a:&amp;mut String){
+    //let t=*a;//借用数据不可转移所有权
+    let mut b=a.to_owned();//通过拷贝方式得到所有权
+    println!(&quot;{:&gt;}&quot;,b);
+    *a=&quot;vff&quot;.to_string();//不转移所有权情况下修改
+}
+let mut bddd=&amp;mut &quot;sss&quot;.to_string();
+aaaa(bddd);
+</code></pre>
+<blockquote>
+<p>转为位置大小类型</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>trait Aa{};
+struct Baaa{};
+impl Aa for Baaa{}
+//let a= Baaa{} as dyn Aa;//错误 a 栈变量，必须知道大小
+//let a= Box::new(Baaa{} as dyn Aa）;//错误 临时变量为 栈变量，必须知道大小
+let a=Box::new(Baaa{} ) as Box&lt;dyn Aa&gt;;//正确，Box知道大小，内部为堆变量，可未知大小
+fn aaa(a: Box&lt;dyn Aa&gt;){}
+aaa(a);
+let b=&amp;Baaa{} as &amp;dyn Aa;//正确，a为引用指针栈变量，知道大小
+fn bbb(a: &amp;dyn Aa){}
+bbb(b);
+//当类型为未知大小要转类型时可用 &amp; 或 Box 封装
+<span class="boring">}
+</span></code></pre></pre>
+<blockquote>
+<p>各种环境变量使用和示例</p>
+</blockquote>
+<p><img src=".gitbook/assets/image.png" alt="" /></p>
+<blockquote>
+<pre><code>单线程
+    单所有权
+        栈
+            整体不变:T
+            整体可变:mut T 
+            内部可变:
+                可复制:Cell&lt;T&gt;
+                不可复制:RefCell&lt;T&gt;
+        堆:Box&lt;T&gt;
+    多所有权
+        不变:Rc&lt;T&gt;
+        可变:
+            可复制:Rc&lt;Cell&lt;T&gt;&gt;
+            不可复制:Rc&lt;RefCell&lt;T&gt;&gt;
+多线程
+    单所有权
+        单读单写
+            BOOL或INT类型:AtomicT[Bool,i8,i16,i32,i64,isize,u8,u16,u32,usize,ptr]
+            任意类型:Mutex&lt;T&gt;
+        多读单写:RwLock&lt;T&gt;
+    多所有权 [多线程必须包一下]
+        不变:Arc&lt;T&gt;
+        可变:
+            单读单写
+                BOOL或INT类型:Arc&lt;AtomicT&gt;
+                任意类型:Arc&lt;Mutex&lt;T&gt;&gt;
+            多读单写:Arc&lt;RwLock&lt;T&gt;&gt;
+</code></pre>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">use std::thread;
+use std::cell::{Cell, RefCell};
+use std::env::var;
+use std::rc::Rc;
+use std::borrow::{Borrow, BorrowMut};
+use std::sync::atomic::{AtomicI32, Ordering};
+use std::sync::{Mutex, RwLock};
+use std::sync::mpsc::channel;
+
+fn main() {
+
+    var1();
+    var2();
+    var3();
+    var4();
+    var5();
+    var6();
+    var7();
+    var8();
+    var9();
+    var10();
+    var11();
+    var12();
+    var13();
+    var14();
+}
+
+
+fn var14(){
+    //进程间数据传递
+    let (tx, rx) = channel();
+    let tx1=tx.clone();
+    let t1=thread::spawn(move||{//会把tx所有权转移入闭包,进程退出时释放
+        tx.send(11).unwrap();
+    });
+    t1.join().unwrap();
+    let t2=thread::spawn(move ||{//会把tx1所有权转移入闭包,进程退出时释放
+        tx1.send(12).unwrap();
+    });
+    t2.join().unwrap();
+    //Sender会在进程时释放
+    //使用 rx.iter() 生产者必须完成释放,否则进入阻塞
+    for a in rx.iter(){
+        println!(&quot;{}&quot;,a);
+    }
+}
+
+fn var13(){
+    //多线程[任意类型]读写
+    #[derive(Debug)]
+    struct rgt{a:i32}
+    let mg:Arc&lt;RwLock&lt;rgt&gt;&gt;=Arc::new(RwLock::new(rgt{a:1}));
+    let img1=mg.clone();
+    let t1=thread::spawn(move||{
+        let mut t=img1.write().unwrap();
+        t.a=10;
+    });
+    let img2=mg.clone();
+    let t2=thread::spawn(move ||{
+        let mut t=img2.write().unwrap();
+        println!(&quot;{:?}&quot;,t.a);
+        t.a=11;
+    });
+    t2.join().unwrap();
+    t1.join().unwrap();
+    println!(&quot;{:?}&quot;,mg.read().unwrap().a);
+}
+
+fn var12(){
+    //多线程[任意类型]锁定
+    #[derive(Debug)]
+    struct mgt{a:i32}
+    let mg:Arc&lt;Mutex&lt;mgt&gt;&gt;=Arc::new(Mutex::new(mgt{a:1}));
+    let img1=mg.clone();
+    let t1=thread::spawn(move||{
+        let mut t=img1.lock().unwrap();
+        println!(&quot;{:?}&quot;,t);
+        t.a=10;
+    });
+    let img2=mg.clone();
+    let t2=thread::spawn(move ||{
+        let mut t=img2.lock().unwrap();
+        println!(&quot;{:?}&quot;,t);
+        t.a=11;
+    });
+    t2.join().unwrap();
+    t1.join().unwrap();
+    println!(&quot;{:?}&quot;,mg.lock().unwrap());
+}
+fn var11(){
+    //多线程[整数 布尔] 可变
+    let mg:Arc&lt;AtomicI32&gt;=Arc::new(AtomicI32::new(11));
+    let img1=mg.clone();
+    let t1=thread::spawn(move||{
+        img1.fetch_add(1,Ordering::Relaxed);
+        println!(&quot;{}&quot;,img1.load(Ordering::Relaxed));
+    });
+    let img2=mg.clone();
+    let t2=thread::spawn(move ||{
+        img2.fetch_add(1,Ordering::Relaxed);
+        println!(&quot;{}&quot;,img2.load(Ordering::Relaxed));
+    });
+    t2.join().unwrap();
+    t1.join().unwrap();
+    println!(&quot;{}&quot;,mg.load(Ordering::Relaxed));
+}
+fn var10(){
+    //多线程不可变
+    let mg:Arc&lt;i32&gt;=Arc::new(1);
+    let img1=mg.clone();
+    let t1=thread::spawn(move||{
+        println!(&quot;{}&quot;,img1);
+    });
+    let img2=mg.clone();
+    let t2=thread::spawn(move ||{
+        println!(&quot;{}&quot;,img2);
+    });
+    t2.join().unwrap();
+    t1.join().unwrap();
+}
+
+
+fn var9(){
+    //多线程唯一所有权
+    //Mutex 不能 static
+    let tmg:Mutex&lt;i32&gt;=Mutex::new(1);
+    {
+        let mut b=tmg.lock().unwrap();
+        *b=101;
+        println!(&quot;{}&quot;,b);
+    }
+}
+
+//Atomic*系列变量
+static ag:AtomicI32=AtomicI32::new(11);
+fn var8(){
+    //多线程全局简单变量[bool或int][可变]
+    let t1=thread::spawn(move ||{
+        ag.fetch_add(1,Ordering::Relaxed);
+        println!(&quot;{}&quot;,ag.load(Ordering::Relaxed));
+    });
+    let t2=thread::spawn(move ||{
+        ag.fetch_add(1,Ordering::Relaxed);
+        println!(&quot;{}&quot;,ag.load(Ordering::Relaxed));
+    });
+    t1.join().unwrap();
+    t2.join().unwrap();
+}
+fn var7(){
+    //多所有权可变 引用可变
+    #[derive(Debug)]
+    struct at{
+        a:i32
+    }
+    fn myd(t:Rc&lt;RefCell&lt;at&gt;&gt;){}
+    let a =Rc::new(RefCell::new(at{a:1}));//a有所有权
+    let b=a.clone();//b有所有权
+    let c=Rc::downgrade(&amp;a);//c 没有所有权 一般用在重复引用如链表
+    //包里的方法有重复 as &amp;RefCell&lt;at&gt; 强制转义
+    (a.borrow() as &amp;RefCell&lt;at&gt;).borrow_mut().a=111;
+    println!(&quot;{}&quot;,(a.borrow() as &amp;RefCell&lt;at&gt;).borrow().a);//访问
+    //对无所有权的获取和赋值
+    //注意:需要转移 as Rc&lt;RefCell&lt;at&gt;&gt; 不然编译器无法识别对应类型
+    ((c.upgrade().unwrap() as Rc&lt;RefCell&lt;at&gt;&gt;).borrow() as &amp;RefCell&lt;at&gt;).borrow_mut().a=1111;
+    println!(&quot;{}&quot;,(a.borrow() as &amp;RefCell&lt;at&gt;).borrow().a);//访问
+    myd(b);//消耗b
+    myd(a);//消耗a
+}
+fn var6(){
+    //多所有权可变 非引用可变
+    fn myd(t:Rc&lt;Cell&lt;i32&gt;&gt;){}
+    let a=Rc::new(Cell::new(11));//a有所有权
+    let b=a.clone();//b有所有权
+    let c=Rc::downgrade(&amp;a);//c 没有所有权 一般用在重复引用如链表
+    a.replace(12);
+    println!(&quot;{}&quot;,a.get());//访问
+    println!(&quot;{:?}&quot;,c.upgrade().unwrap().replace(13));
+    println!(&quot;{}&quot;,a.get());//访问
+    myd(b);//消耗b
+    myd(a);//消耗a
+}
+fn var5(){
+    //多所有权不可变
+    #[derive(Debug)]
+    struct at{
+        a:i32
+    }
+    fn myd(t:Rc&lt;at&gt;){}
+    let a=Rc::new(at{a:1});//a有所有权
+    let b=a.clone();//b有所有权
+    println!(&quot;a initial rc count = {}&quot;, Rc::strong_count(&amp;a));
+    let c=Rc::downgrade(&amp;a);//c 没有所有权 一般用在重复引用如链表
+    println!(&quot;a initial rc count = {}&quot;, Rc::strong_count(&amp;a));
+    //弱引用没所有权,通过 c.upgrade() 方法拿到弱引用对象
+    //当对象未释放时返回,释放时返回none,所以弱引用可以没有所有权
+    println!(&quot;{:?}&quot;,c.upgrade().unwrap().a);
+    println!(&quot;{}&quot;,a.a);//可直接访问
+    //a.a=2;//不可变
+    myd(b);//消耗b
+    myd(a);//消耗a
+    //c.upgrade().unwrap();//这里取弱引用时拿不到 对象已被释放
+}
+fn var4(){
+    fn out()-&gt;Box&lt;i32&gt;{
+        //堆中内存分配
+        let a=Box::new(11);
+        //非栈拷贝,返回胖指针
+        return a;
+    }
+    //t为在堆中内存
+    let t=out();
+    println!(&quot;{}&quot;,t);
+}
+fn var3(){
+    #[derive(Debug)]
+    struct at{
+        a:i32
+    }
+    let t=at{a:1};
+    //a外部不可变 内部可变
+    let a=RefCell::new(t);//注意这里传入t非&amp;t 但实现&amp;t引用 一般用在结构等
+    //取内部可变的引用对象进行修改
+    a.borrow_mut().a=11;
+    println!(&quot;{:?}&quot;,a);
+}
+fn var2(){
+    //a本身不可变内部可变
+    let a=Cell::new(1);
+    //替换内部数据
+    a.replace(2);
+    println!(&quot;{:?}&quot;,a);
+}
+fn var1(){
+    //单线程可变或不可变
+    let a=1;
+    let mut b=1;//可变
+    let c=b+1;
+    println!(&quot;{}{}{}&quot;,a,b,c);
+}
+
+</code></pre></pre>
+<blockquote>
+<p>可变值借用后不可变</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span> let mut b=1;
+ let sss= || {
+     println!(&quot;{}&quot;,b);
+ };
+ sss();
+ b=2;//编译器能识别 sss 在下文不在使用
+// let t=sss;//如果sss在使用，由于可变值借用后不可修改，所以会报错
+<span class="boring">}
+</span></code></pre></pre>
+<p>条件变量示例</p>
+<pre><pre class="playground"><code class="language-rust">use std::sync::{Arc, Condvar, Mutex};
+use std::thread;
+fn main() {
+    let pair = Arc::new((Mutex::new(false), Condvar::new()));
+    let pair_clone = pair.clone();
+    thread::spawn(move || {
+        let &amp;(ref lock, ref cvar) = &amp;*pair_clone;
+        let mut started = lock.lock().unwrap();
+        *started = true;
+       cvar.notify_one();
+   });
+   let &amp;(ref lock, ref cvar) = &amp;*pair;
+   let mut started = lock.lock().unwrap();
+   while !*started {
+       println!(&quot;{}&quot;, started); // false
+       started = cvar.wait(started).unwrap();//lock 只能被一个Condvar绑定 lock被多个绑定时完成时只触发第一个
+       println!(&quot;{}&quot;, started); // true
+   }
+}
+</code></pre></pre>
+<p>Turbofish 操作</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct A{}
+trait T{ fn b&lt;T&gt;(a:T)-&gt;T;}
+impl A{
+    fn a&lt;T&gt;(a:T)-&gt;T{
+        a
+    }
+}
+impl T for A{
+    fn b&lt;T&gt;(a:T)-&gt;T{
+        a
+    }
+}
+let a=A::a::&lt;i8&gt;(1);//类型的turbofish操作
+let b=T::b::&lt;i8&gt;(1);//trait 的Turbofish操作
+//Turbofish 只能用在声明的ITEM上
+<span class="boring">}
+</span></code></pre></pre>
+<blockquote>
+<p>动态类型变量获取类型并调用类型方法</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    struct A{}
+    struct B{}
+    trait C{
+        fn b()-&gt;i32;
+    }
+    impl C for A{
+        fn b()-&gt;i32{1}
+    }
+    impl C for B{
+        fn b()-&gt;i32{2}
+    }
+    fn aa()-&gt;Box&lt;impl C&gt;{
+        Box::new(A{})
+    }
+    fn bb()-&gt;Box&lt;impl C&gt;{
+        Box::new(B{})
+    }
+    let t0=aa();
+    let t1=bb();
+    fn call_bb&lt;T:C&gt;(_:&amp;Box&lt;T&gt;)-&gt;i32{
+        T::b()
+    }
+    println!(&quot;{}&quot;,call_bb(&amp;t0));
+    println!(&quot;{}&quot;,call_bb(&amp;t1));
+}
+</code></pre></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../rust/collections.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../rust/string-less-than-greater-than-number.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../rust/collections.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../rust/string-less-than-greater-than-number.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

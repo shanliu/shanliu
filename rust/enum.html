@@ -1,0 +1,289 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>enum - shanliu blog</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../rust/SUMMARY.html"><strong aria-hidden="true">1.</strong> RUST笔记</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../rust/base.html"><strong aria-hidden="true">1.1.</strong> 一些概念</a></li><li class="chapter-item expanded "><a href="../rust/trait.html"><strong aria-hidden="true">1.2.</strong> Trait</a></li><li class="chapter-item expanded "><a href="../rust/mod.html"><strong aria-hidden="true">1.3.</strong> mod</a></li><li class="chapter-item expanded "><a href="../rust/async.html"><strong aria-hidden="true">1.4.</strong> async</a></li><li class="chapter-item expanded "><a href="../rust/enum.html" class="active"><strong aria-hidden="true">1.5.</strong> enum</a></li><li class="chapter-item expanded "><a href="../rust/collections.html"><strong aria-hidden="true">1.6.</strong> collections</a></li><li class="chapter-item expanded "><a href="../rust/variable.html"><strong aria-hidden="true">1.7.</strong> variable</a></li><li class="chapter-item expanded "><a href="../rust/string-less-than-greater-than-number.html"><strong aria-hidden="true">1.8.</strong> string&lt;-&gt;number</a></li><li class="chapter-item expanded "><a href="../rust/ownership.html"><strong aria-hidden="true">1.9.</strong> ownership</a></li><li class="chapter-item expanded "><a href="../rust/lifetime.html"><strong aria-hidden="true">1.10.</strong> lifetime</a></li><li class="chapter-item expanded "><a href="../rust/string.html"><strong aria-hidden="true">1.11.</strong> string</a></li><li class="chapter-item expanded "><a href="../rust/c-greater-than-rust.html"><strong aria-hidden="true">1.12.</strong> c&lt;-&gt;rust</a></li><li class="chapter-item expanded "><a href="../rust/creat.html"><strong aria-hidden="true">1.13.</strong> creat</a></li><li class="chapter-item expanded "><a href="../rust/macro.html"><strong aria-hidden="true">1.14.</strong> macro_rules</a></li><li class="chapter-item expanded "><a href="../rust/proc-macro.html"><strong aria-hidden="true">1.15.</strong> proc-macro</a></li></ol></li><li class="chapter-item expanded "><a href="../cpp/SUMMARY.html"><strong aria-hidden="true">2.</strong> C&amp;CPP笔记</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../cpp/syntax.html"><strong aria-hidden="true">2.1.</strong> 语法</a></li><li class="chapter-item expanded "><a href="../cpp/debug.html"><strong aria-hidden="true">2.2.</strong> 调试与错误</a></li><li class="chapter-item expanded "><a href="../cpp/stdarg.h.html"><strong aria-hidden="true">2.3.</strong> 不定参数</a></li><li class="chapter-item expanded "><a href="../cpp/za-xiang.html"><strong aria-hidden="true">2.4.</strong> 杂项</a></li><li class="chapter-item expanded "><a href="../cpp/zi-fu-chuan.html"><strong aria-hidden="true">2.5.</strong> 字符串</a></li><li class="chapter-item expanded "><a href="../cpp/socket.html"><strong aria-hidden="true">2.6.</strong> 网络</a></li><li class="chapter-item expanded "><a href="../cpp/wen-jian.html"><strong aria-hidden="true">2.7.</strong> 文件</a></li><li class="chapter-item expanded "><a href="../cpp/jin-cheng.html"><strong aria-hidden="true">2.8.</strong> 进程</a></li><li class="chapter-item expanded "><a href="../cpp/pthread.html"><strong aria-hidden="true">2.9.</strong> 线程</a></li><li class="chapter-item expanded "><a href="../cpp/xin-hao.html"><strong aria-hidden="true">2.10.</strong> 信号</a></li><li class="chapter-item expanded "><a href="../cpp/guan-dao.html"><strong aria-hidden="true">2.11.</strong> 管道</a></li><li class="chapter-item expanded "><a href="../cpp/shi-jian.html"><strong aria-hidden="true">2.12.</strong> 时间</a></li><li class="chapter-item expanded "><a href="../cpp/dong-tai-jia-zai-ku.html"><strong aria-hidden="true">2.13.</strong> 动态加载库</a></li><li class="chapter-item expanded "><a href="../cpp/chang-yong-suan-fa.html"><strong aria-hidden="true">2.14.</strong> 常用算法</a></li><li class="chapter-item expanded "><a href="../cpp/gcchun-bian-hui-bian.html"><strong aria-hidden="true">2.15.</strong> C调用汇编</a></li><li class="chapter-item expanded "><a href="../cpp/hui-bian-ji-cun-qi.html"><strong aria-hidden="true">2.16.</strong> 汇编寄存器</a></li><li class="chapter-item expanded "><a href="../cpp/hui-bian-chang-yong-zhi-ling.html"><strong aria-hidden="true">2.17.</strong> 汇编常用指令</a></li><li class="chapter-item expanded "><a href="../cpp/jin-cheng-du-xie-wen-jian-suo.html"><strong aria-hidden="true">2.18.</strong> 进程读写文件锁</a></li><li class="chapter-item expanded "><a href="../cpp/phpzhong-jiyu-atomic-de-zi-xuan-suo-shi-xian.html"><strong aria-hidden="true">2.19.</strong> PHP中基于atomic的自旋锁实现</a></li><li class="chapter-item expanded "><a href="../cpp/chang-liang-zi-fu-chuan-pi-liang-ying-she.html"><strong aria-hidden="true">2.20.</strong> PHP中常量字符串批量映射</a></li><li class="chapter-item expanded "><a href="../cpp/tcpudpxie-yi-xiang-jie.html"><strong aria-hidden="true">2.21.</strong> TCP/UDP包示例</a></li><li class="chapter-item expanded "><a href="../cpp/xi-tong-diao-yong-zhong-ding-yi.html"><strong aria-hidden="true">2.22.</strong> 系统函数重定义</a></li><li class="chapter-item expanded "><a href="../cpp/bit-op.html"><strong aria-hidden="true">2.23.</strong> 加减乘除位运算</a></li></ol></li><li class="chapter-item expanded "><a href="../other/SUMMARY.html"><strong aria-hidden="true">3.</strong> JS和其他笔记</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../other/react-native.html"><strong aria-hidden="true">3.1.</strong> react-native</a></li><li class="chapter-item expanded "><a href="../other/rxjs.html"><strong aria-hidden="true">3.2.</strong> rxjs</a></li><li class="chapter-item expanded "><a href="../other/vim.html"><strong aria-hidden="true">3.3.</strong> vim</a></li><li class="chapter-item expanded "><a href="../other/css-flex.html"><strong aria-hidden="true">3.4.</strong> css flex</a></li><li class="chapter-item expanded "><a href="../other/docker.html"><strong aria-hidden="true">3.5.</strong> docker</a></li><li class="chapter-item expanded "><a href="../other/es6.html"><strong aria-hidden="true">3.6.</strong> es6</a></li><li class="chapter-item expanded "><a href="../other/react.html"><strong aria-hidden="true">3.7.</strong> react</a></li></ol></li><li class="chapter-item expanded "><a href="../php/SUMMARY.html"><strong aria-hidden="true">4.</strong> PHP笔记</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../php/composer.html"><strong aria-hidden="true">4.1.</strong> composer</a></li><li class="chapter-item expanded "><a href="../php/ext.html"><strong aria-hidden="true">4.2.</strong> 扩展开发</a></li><li class="chapter-item expanded "><a href="../php/php7-feature.html"><strong aria-hidden="true">4.3.</strong> php7一些特性</a></li><li class="chapter-item expanded "><a href="../php/sort.html"><strong aria-hidden="true">4.4.</strong> php快速排序</a></li><li class="chapter-item expanded "><a href="../php/larvale.html"><strong aria-hidden="true">4.5.</strong> larvale</a></li><li class="chapter-item expanded "><a href="../php/re2candbison.html"><strong aria-hidden="true">4.6.</strong> re2c&amp;bison</a></li><li class="chapter-item expanded "><a href="../php/rabbitmq.html"><strong aria-hidden="true">4.7.</strong> rabbitmq</a></li><li class="chapter-item expanded "><a href="../php/proto.html"><strong aria-hidden="true">4.8.</strong> proto</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">shanliu blog</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/shanliu/blog" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <hr />
+<h2 id="枚举-enum"><a class="header" href="#枚举-enum">枚举 enum</a></h2>
+<blockquote>
+<p>枚举中闭包</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span> #[derive(Debug)]
+    enum Ta{
+        A(i32),//类型:参数为i32,返回自身的闭包 A(i32)-&gt;Ta
+        B(i32)//类型:参数为i32,返回自身的闭包
+    }
+    //实现根据类型得到对应类型变量
+    fn aaa&lt;T:Fn(i32)-&gt;Ta&gt;(a:T)-&gt;Ta{
+        a(1)
+    }
+    let k=aaa(Ta::A);
+    println!(&quot;{:?}&quot;,k);
+    let k=aaa(Ta::B);
+    println!(&quot;{:?}&quot;,k);
+<span class="boring">}
+</span></code></pre></pre>
+<blockquote>
+<p>enmu 示例</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">enum etest1{
+    A,//跟C里面的枚举差不多
+    B(f64),//待参数枚举,用于实现多类型变量
+    C{a:i32}//结构枚举
+}
+//enum etest1{
+//    A=2,//如果存在()或struct不可以有赋值,这将报错
+//    B(f64)
+//}
+fn main() {
+    let tvar1=etest1::A;
+    if let etest1::A =tvar1 {//必须模式匹配,不能相等判断
+        println!(&quot;match&quot;);
+    }
+    let tvar1=etest1::C{a:1};//带参数枚举
+    if let etest1::C{a} =tvar1{
+        println!(&quot;{}&quot;,a);
+    }
+    let tvar=etest1::B(0.1);//带参数枚举
+    //枚举可以通过模式匹配得到枚举里面数据
+    if let etest1::B(x) =tvar{
+        println!(&quot;{}&quot;,x);
+    }
+}
+</code></pre></pre>
+<blockquote>
+<p>Option 类型</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let b=(Some(1)).and_then(|x|Some('1'));//闭包返回更换OPTION类型,返回OPTION
+let b=(Some(1)).and(Some('c'));//直接替换OPTION类型
+let b=(Some(1)).map(|x|{'s'});//闭包返回更换OPTION类型,返回数据
+let b=(Some(1)).replace(12);//替换掉值
+let b=(Some(1)).filter(||true);//闭包返回真使用当前值,否则变为NONE
+let b=(Some(1)).or(Some(1));//为NONE是使用指定值
+let b=(Some(1)).or_else(||Some(1));//为NONE时闭包返回替换
+let b=(Some(1)).ok_or(1);//转为RESULT,不存在时指定数据
+let b=(Some(1)).ok_or_else(|x|1);//转为RESULT,不存在时指定闭包返回数据
+let b=(Some(1)).take();//返回当前值并用默认值填充
+let b=(Some(1)).map_or_else(||1,||2);//根据实际数据闭包返回解包
+let b=(Some(1)).map_or(11,|x|{12});//默认值指定,数据根据实际数据闭包返回解包
+let b=(Some(1)).expect(&quot;xxxx&quot;);//指定异常消息解包
+let b=(Some(1)).unwrap();//按内部异常消息解包
+let b=(Some(1)).xor(None);//异或处理 两个一样时候返回NONE
+let b=(Some(1)).get_or_insert(1);//判断不存在时候使用指定值插入并解包
+let b=(Some(1)).get_or_insert_with(||1);//判断不存在时候使用指定值插入闭包返回并解包
+<span class="boring">}
+</span></code></pre></pre>
+<blockquote>
+<p>Result&lt;T,U&gt;类型</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    pub typeMYResult&lt;T&gt; = Result&lt;T, String&gt;;
+    let b=(MYResult::Ok(1)).and_then(|x|MYResult::Ok('1'));//闭包返回更换OPTION类型,返回OPTION
+    let b=(MYResult::Ok(1)).and(MYResult::Ok('c'));//直接替换OPTION类型
+    let b=(MYResult::Ok(1)).map(|x|{'s'});//闭包返回更换OPTION类型,返回数据
+    let b=(MYResult::Ok(1)).or(MYResult::Ok(1));//为NONE是使用指定值
+    let b=(MYResult::Ok(1)).or_else(|e|MYResult::Err(&quot;cc&quot;.to_string()));//为NONE时闭包返回替换
+    let c=(MYResult::Ok(1)).map_err(|x|&quot;xxxx&quot;);//错误时回调替换
+    let b=(Some(1)).filter(|e|true);//闭包返回真使用当前值
+    let c=(MYResult::Ok(1)).err();//转为OPTION 正常为NONE错误为Some
+    let c=(MYResult::Ok(1)).ok();//转为OPTION,正常为Some 错误为NONE
+    let c=(MYResult::Ok(1)).is_err();//是否错误
+    let c=(MYResult::Ok(1)).is_ok();//是否正常
+    let c=(MYResult::Ok(1)).unwrap_err();//解包:解错误包,正常时异常
+    let c=(MYResult::Ok(1)).unwrap();//解包:错误时异常
+    let c=(MYResult::Ok(1)).unwrap_or(1);//解包:错误时用指定值代替
+    let c=(MYResult::Ok(1)).unwrap_or_default();//解包:错误时用默认值
+    let c=(MYResult::Ok(1)).unwrap_or_else(|x|11);//解包:错误时用指定闭包返回替换
+    let b=(MYResult::Ok(1)).map_or_else(|e|1,|e|2);//解包:根据实际数据闭包返回解包
+    let b=(MYResult::Ok(1)).map_or(11,|x|{12});//解包:默认值指定,数据根据实际数据闭包返回解包
+<span class="boring">}
+</span></code></pre></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../rust/async.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../rust/collections.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../rust/async.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../rust/collections.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>信号 - shanliu blog</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../rust/SUMMARY.html"><strong aria-hidden="true">1.</strong> RUST笔记</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../rust/base.html"><strong aria-hidden="true">1.1.</strong> 一些概念</a></li><li class="chapter-item expanded "><a href="../rust/trait.html"><strong aria-hidden="true">1.2.</strong> Trait</a></li><li class="chapter-item expanded "><a href="../rust/mod.html"><strong aria-hidden="true">1.3.</strong> mod</a></li><li class="chapter-item expanded "><a href="../rust/async.html"><strong aria-hidden="true">1.4.</strong> async</a></li><li class="chapter-item expanded "><a href="../rust/enum.html"><strong aria-hidden="true">1.5.</strong> enum</a></li><li class="chapter-item expanded "><a href="../rust/collections.html"><strong aria-hidden="true">1.6.</strong> collections</a></li><li class="chapter-item expanded "><a href="../rust/variable.html"><strong aria-hidden="true">1.7.</strong> variable</a></li><li class="chapter-item expanded "><a href="../rust/string-less-than-greater-than-number.html"><strong aria-hidden="true">1.8.</strong> string&lt;-&gt;number</a></li><li class="chapter-item expanded "><a href="../rust/ownership.html"><strong aria-hidden="true">1.9.</strong> ownership</a></li><li class="chapter-item expanded "><a href="../rust/lifetime.html"><strong aria-hidden="true">1.10.</strong> lifetime</a></li><li class="chapter-item expanded "><a href="../rust/string.html"><strong aria-hidden="true">1.11.</strong> string</a></li><li class="chapter-item expanded "><a href="../rust/c-greater-than-rust.html"><strong aria-hidden="true">1.12.</strong> c&lt;-&gt;rust</a></li><li class="chapter-item expanded "><a href="../rust/creat.html"><strong aria-hidden="true">1.13.</strong> creat</a></li><li class="chapter-item expanded "><a href="../rust/macro.html"><strong aria-hidden="true">1.14.</strong> macro_rules</a></li><li class="chapter-item expanded "><a href="../rust/proc-macro.html"><strong aria-hidden="true">1.15.</strong> proc-macro</a></li></ol></li><li class="chapter-item expanded "><a href="../cpp/SUMMARY.html"><strong aria-hidden="true">2.</strong> C&amp;CPP笔记</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../cpp/syntax.html"><strong aria-hidden="true">2.1.</strong> 语法</a></li><li class="chapter-item expanded "><a href="../cpp/debug.html"><strong aria-hidden="true">2.2.</strong> 调试与错误</a></li><li class="chapter-item expanded "><a href="../cpp/stdarg.h.html"><strong aria-hidden="true">2.3.</strong> 不定参数</a></li><li class="chapter-item expanded "><a href="../cpp/za-xiang.html"><strong aria-hidden="true">2.4.</strong> 杂项</a></li><li class="chapter-item expanded "><a href="../cpp/zi-fu-chuan.html"><strong aria-hidden="true">2.5.</strong> 字符串</a></li><li class="chapter-item expanded "><a href="../cpp/socket.html"><strong aria-hidden="true">2.6.</strong> 网络</a></li><li class="chapter-item expanded "><a href="../cpp/wen-jian.html"><strong aria-hidden="true">2.7.</strong> 文件</a></li><li class="chapter-item expanded "><a href="../cpp/jin-cheng.html"><strong aria-hidden="true">2.8.</strong> 进程</a></li><li class="chapter-item expanded "><a href="../cpp/pthread.html"><strong aria-hidden="true">2.9.</strong> 线程</a></li><li class="chapter-item expanded "><a href="../cpp/xin-hao.html" class="active"><strong aria-hidden="true">2.10.</strong> 信号</a></li><li class="chapter-item expanded "><a href="../cpp/guan-dao.html"><strong aria-hidden="true">2.11.</strong> 管道</a></li><li class="chapter-item expanded "><a href="../cpp/shi-jian.html"><strong aria-hidden="true">2.12.</strong> 时间</a></li><li class="chapter-item expanded "><a href="../cpp/dong-tai-jia-zai-ku.html"><strong aria-hidden="true">2.13.</strong> 动态加载库</a></li><li class="chapter-item expanded "><a href="../cpp/chang-yong-suan-fa.html"><strong aria-hidden="true">2.14.</strong> 常用算法</a></li><li class="chapter-item expanded "><a href="../cpp/gcchun-bian-hui-bian.html"><strong aria-hidden="true">2.15.</strong> C调用汇编</a></li><li class="chapter-item expanded "><a href="../cpp/hui-bian-ji-cun-qi.html"><strong aria-hidden="true">2.16.</strong> 汇编寄存器</a></li><li class="chapter-item expanded "><a href="../cpp/hui-bian-chang-yong-zhi-ling.html"><strong aria-hidden="true">2.17.</strong> 汇编常用指令</a></li><li class="chapter-item expanded "><a href="../cpp/jin-cheng-du-xie-wen-jian-suo.html"><strong aria-hidden="true">2.18.</strong> 进程读写文件锁</a></li><li class="chapter-item expanded "><a href="../cpp/phpzhong-jiyu-atomic-de-zi-xuan-suo-shi-xian.html"><strong aria-hidden="true">2.19.</strong> PHP中基于atomic的自旋锁实现</a></li><li class="chapter-item expanded "><a href="../cpp/chang-liang-zi-fu-chuan-pi-liang-ying-she.html"><strong aria-hidden="true">2.20.</strong> PHP中常量字符串批量映射</a></li><li class="chapter-item expanded "><a href="../cpp/tcpudpxie-yi-xiang-jie.html"><strong aria-hidden="true">2.21.</strong> TCP/UDP包示例</a></li><li class="chapter-item expanded "><a href="../cpp/xi-tong-diao-yong-zhong-ding-yi.html"><strong aria-hidden="true">2.22.</strong> 系统函数重定义</a></li><li class="chapter-item expanded "><a href="../cpp/bit-op.html"><strong aria-hidden="true">2.23.</strong> 加减乘除位运算</a></li></ol></li><li class="chapter-item expanded "><a href="../other/SUMMARY.html"><strong aria-hidden="true">3.</strong> JS和其他笔记</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../other/react-native.html"><strong aria-hidden="true">3.1.</strong> react-native</a></li><li class="chapter-item expanded "><a href="../other/rxjs.html"><strong aria-hidden="true">3.2.</strong> rxjs</a></li><li class="chapter-item expanded "><a href="../other/vim.html"><strong aria-hidden="true">3.3.</strong> vim</a></li><li class="chapter-item expanded "><a href="../other/css-flex.html"><strong aria-hidden="true">3.4.</strong> css flex</a></li><li class="chapter-item expanded "><a href="../other/docker.html"><strong aria-hidden="true">3.5.</strong> docker</a></li><li class="chapter-item expanded "><a href="../other/es6.html"><strong aria-hidden="true">3.6.</strong> es6</a></li><li class="chapter-item expanded "><a href="../other/react.html"><strong aria-hidden="true">3.7.</strong> react</a></li></ol></li><li class="chapter-item expanded "><a href="../php/SUMMARY.html"><strong aria-hidden="true">4.</strong> PHP笔记</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../php/composer.html"><strong aria-hidden="true">4.1.</strong> composer</a></li><li class="chapter-item expanded "><a href="../php/ext.html"><strong aria-hidden="true">4.2.</strong> 扩展开发</a></li><li class="chapter-item expanded "><a href="../php/php7-feature.html"><strong aria-hidden="true">4.3.</strong> php7一些特性</a></li><li class="chapter-item expanded "><a href="../php/sort.html"><strong aria-hidden="true">4.4.</strong> php快速排序</a></li><li class="chapter-item expanded "><a href="../php/larvale.html"><strong aria-hidden="true">4.5.</strong> larvale</a></li><li class="chapter-item expanded "><a href="../php/re2candbison.html"><strong aria-hidden="true">4.6.</strong> re2c&amp;bison</a></li><li class="chapter-item expanded "><a href="../php/rabbitmq.html"><strong aria-hidden="true">4.7.</strong> rabbitmq</a></li><li class="chapter-item expanded "><a href="../php/proto.html"><strong aria-hidden="true">4.8.</strong> proto</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">shanliu blog</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/shanliu/blog" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="信号"><a class="header" href="#信号">信号</a></h1>
+<h2 id="信号-1"><a class="header" href="#信号-1">信号</a></h2>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;signal.h&gt;
+#include &lt;setjmp.h&gt;
+static sigjmp_buf jmpbuf;
+void sighandle(int sig){
+    printf(&quot;hi\n&quot;);
+    fflush(stdout);
+        siglongjmp(jmpbuf,1);
+}
+int main(){
+    if(signal(SIGUSR1, sighandle) == SIG_ERR){
+            perror(&quot;signal&quot;);
+            return -1;
+    }
+    printf(&quot;start main\n&quot;);
+    if(sigsetjmp(jmpbuf,1)){ //1 将移除信号屏蔽 0 不移除
+            printf(&quot;return from sighandle\n&quot;);
+    }
+    while(1){
+            pause();
+    }
+}
+</code></pre>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;signal.h&gt;
+#include &lt;setjmp.h&gt;
+void sighandle(int sig){
+    printf(&quot;hi\n&quot;);
+    fflush(stdout);
+}
+void sighandle1(int sig,siginfo_t *info,void *reverse)
+{
+    printf(&quot;hi1\n&quot;);
+    fflush(stdout);
+}
+//通过mask 信号掩码可以控制信号的先后接受顺序
+int main(){
+    //SA_INTERRUPT 信号中断的系统调用不会自动重启动
+    //SA_RESTART 信号中断的系统调用会自动重启,即信号处理完成时回到中断时的系统调用中
+    //SA_NOCLDSTOP 当子进程停止时不产生此信号。当子进程终止时才产生此信号
+    //SA_NOCLDWAIT 当调用进程的子进程终止时不创建僵尸进程 父进程在后调用wait 则阻塞，直到所有子进程都终止
+    //SA_SIGINFO 可以得到产生此信号发生时的相关信息 siginfo_t
+    struct sigaction sa_usr;
+    sa_usr.sa_flags = SA_INTERRUPT;
+    sa_usr.sa_handler = sighandle;   //信号处理函数
+    sigemptyset(&amp;sa_usr.sa_mask);
+    sigaction(SIGINT, &amp;sa_usr, NULL);
+
+     struct sigaction sa_usr1;
+    sa_usr1.sa_flags = SA_RESTART|SA_SIGINFO;
+    sa_usr1.sa_sigaction = sighandle1;   //信号处理函数
+    sigemptyset(&amp;sa_usr1.sa_mask);
+    sigaction(SIGUSR1, &amp;sa_usr1, NULL);
+
+    printf(&quot;start main\n&quot;);
+    char b[100];
+    scanf(&quot;%s&quot;,b);
+}
+</code></pre>
+<h3 id="信号-2"><a class="header" href="#信号-2">信号</a></h3>
+<pre><code>linux:  &lt;bits/signal.h&gt; 
+maxos&amp;&amp;freebsd: &lt;sys/signal.h&gt;
+solaris: &lt;sys/iso/signal_iso.h&gt;
+#include &lt;signal.h&gt;
+子进程将继承父进程的信号处理方法
+</code></pre>
+<h2 id="unix系统信号具体"><a class="header" href="#unix系统信号具体">UNIX系统信号(具体:**)</a></h2>
+<pre><code>SIGKILL 终止信号
+SIGCHLD 子进程终止向父进程发送的信号
+SIGCLD 系统V的子进程终止信号(不要用)
+</code></pre>
+<h2 id="signal-函数"><a class="header" href="#signal-函数">signal 函数</a></h2>
+<ol>
+<li>void (_signal(int signo,void(_func)(int)))(int);</li>
+<li>typeof void sigfun(int);<br />
+sigfun <em>signal(int,sigfun</em> );</li>
+</ol>
+<h2 id="系统信号处理函数宏"><a class="header" href="#系统信号处理函数宏">系统信号处理函数(宏)</a></h2>
+<pre><code>SIG_ERR
+SIG_DFL 
+SIG_IGN
+</code></pre>
+<h2 id="可重入函数"><a class="header" href="#可重入函数">可重入函数</a></h2>
+<pre><code>因为无法预知程序执行情况,所以在实现信号处理函数时候,不要使用不可重入函数
+</code></pre>
+<h2 id="可信信号术语"><a class="header" href="#可信信号术语">可信信号术语</a></h2>
+<pre><code>重复多个相同信号(未处理的时候)只保留传送一个,信号传送没有顺序
+</code></pre>
+<h2 id="发送信号"><a class="header" href="#发送信号">发送信号</a></h2>
+<pre><code>#include &lt;signal.h&gt;
+int kill (pid_t pid,int signo); 向指定进程发送信号,需要权限
+    pid &gt;0 发送信号到指定进程
+    pid==0 发送给自己
+    pid ==-1 给所有有权限发送信号的进程发送信号
+    pid &lt;0 pid的绝对值发送信号
+int raise(int signo); 给自己发送信号
+
+#include &lt;unistd.h&gt;
+unsigned int alarm(unsigned int seconds); 设置计时器
+    但上一个计时器没完成,在调用者复位定时器重新计时
+int pause(void); 产生一个暂停信号
+</code></pre>
+<h2 id="信号集-作用告诉内核不可以发生该信号集的信号"><a class="header" href="#信号集-作用告诉内核不可以发生该信号集的信号">信号集 作用,告诉内核不可以发生该信号集的信号</a></h2>
+<pre><code>#include &lt;signal.h&gt;
+int sigemptyset(sigset_t *set); 清除所有信号
+int sigfillset(sigset_t *set); 重置信号
+int sigaddset(sigset_t *set,int signo); 添加信号
+int sigdelset(sigset_t *set,int signo); 删除信号
+int sigismember(const sigset_t *set,int signo); 检查是否有指定信号
+
+int sigprocmask(int how,const sigset_t *restric set,sigset_t *restirc oset);
+    把建立好的信号提交给内核或从内核取出当前的屏蔽信号
+    oset 非空,当前进程的屏蔽信号通过oset返回
+    set 非空,根据how的指示来修改当前的屏蔽信号 (对于SIGKILL SIGSTOP无效)
+    how 取值: SIG_BLOCK 新加新的屏蔽信号 (并集)
+              SIG_UNBLOCK 删除指定的屏蔽信号 (交集)
+              SIG_SETMASK 用当前屏蔽信号代替原来的屏蔽信号
+int sigpending(sigset_t *set);
+    当信号被屏蔽之后,只是不传送给程序,信号在内核阻塞
+    调用此程序可以获取被阻塞的这些没有处理的信号
+    当屏蔽取出之后,信号将立即会被传送,相当于调用sigprocmask解除屏蔽后执行
+</code></pre>
+<h2 id="新信号处理函数"><a class="header" href="#新信号处理函数">新信号处理函数</a></h2>
+<pre><code>#include &lt;signal.h&gt;
+int sigaction(int signo,const struct sigaction *restrict act,
+              struct sigaction * restrict oact);
+    信号处理函数设置,可以代替signal函数
+    signo 信号编号
+    act 非空,修改信号处理动作
+    oact 非空.返回原来的处理动作
+    struct sigaction{
+        void (*sa_handler)(int);/*信号处理函数*/
+        sigset_t sa_mask; 
+            /*发生信号处理时,将该信号添加到屏蔽信号集,必须初始化0
+            返回时候恢复原信号集(为了保证未返回时候正常,需要使用siglongjmp函数),
+            可以让某些信号在此信号之后触发*/
+        int sa_flags;
+            /*对信号处理的选项,对信号的发生的调整,
+            可以多选值,用 | 连接参考page 262,表10-5*/
+        void (*sa_sigaction)(int,siginfo_t *,void *);
+        /*但sa_flags 为SA_SIGINFO时候用该函数处理信号
+          用此函数处理信号可以得到产生此信号发生时的相关信息
+          关于siginfo_t 的结构可以参考page 263*/
+    }
+</code></pre>
+<h2 id="sigsetjmp与siglogjmp-函数"><a class="header" href="#sigsetjmp与siglogjmp-函数">sigsetjmp与siglogjmp 函数</a></h2>
+<pre><code>但信号进入信号处理函数前,当前信号会被添加到信号屏蔽集里
+但时候logjmp跳出该信号处理函数时候,有些系统不会将当前信号从信号屏蔽里移除
+所以为了兼容,在信号处理函数里面,使用siglogjmp跳转程序
+siglogjmp 还会恢复sigsetjmp保留的关键子
+#include &lt;setjmp.h&gt;
+int sigsetjmp(sigjmp_buf env,int savemask); 设置一个跳转点
+void siglongjmp(sigjmp_buf env,int val); 跳转到指定跳转点
+</code></pre>
+<pre><code class="language-php">#include&lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;signal.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;setjmp.h&gt;
+static jmp_buf jmpbuf;
+void sig_handler(int num)
+{
+    printf(&quot;\nrecvive the signal is %d\n&quot;, num);
+    siglongjmp(jmpbuf, 2);//
+}
+int main()
+{
+    int time = 5;
+    signal(SIGINT, sig_handler);
+    //若savemask为非0值，则sigsetjmp在env中保存进程的当前屏蔽字,不屏蔽信号会存在多次触发问题
+    //默认调用siglongjmp设置,第一次执行以下都返回0
+    printf(&quot;1:%d&quot;,sigsetjmp(jmpbuf, 1/*savemask*/));
+    printf(&quot;2:%d&quot;,sigsetjmp(jmpbuf, 1/*savemask*/));
+    printf(&quot;3:%d&quot;,sigsetjmp(jmpbuf, 1/*savemask*/));//sigsetjmp会覆盖之前设置,所以信号处理完会跳转到这里[包含本行],返回siglongjmp设置的变量
+    printf(&quot;enter to the sleep.\n&quot;);
+    sleep(time);//阻塞时收到信号,如果信号处理函数中没有 siglongjmp ,信号处理完返回此处阻塞
+    printf(&quot;sleep is over, main over.\n&quot;);
+    exit(0);
+}
+</code></pre>
+<h2 id="sigsuspend函数"><a class="header" href="#sigsuspend函数">sigsuspend函数</a></h2>
+<pre><code>#include &lt;signal.h&gt;
+int sigsuspend(const sigset_t *sigmask);
+    sigmask 为提供给内核的屏蔽信号集
+    该函数的作用是在接到一个信号之前将程序挂起,
+    直到接到一个信号处理函数处理完后返回
+    作用是防止信号冲突程序被挂起
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../cpp/pthread.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../cpp/guan-dao.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../cpp/pthread.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../cpp/guan-dao.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

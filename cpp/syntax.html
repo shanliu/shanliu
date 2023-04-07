@@ -1,0 +1,858 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>语法 - shanliu blog</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../rust/SUMMARY.html"><strong aria-hidden="true">1.</strong> RUST笔记</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../rust/base.html"><strong aria-hidden="true">1.1.</strong> 一些概念</a></li><li class="chapter-item expanded "><a href="../rust/trait.html"><strong aria-hidden="true">1.2.</strong> Trait</a></li><li class="chapter-item expanded "><a href="../rust/mod.html"><strong aria-hidden="true">1.3.</strong> mod</a></li><li class="chapter-item expanded "><a href="../rust/async.html"><strong aria-hidden="true">1.4.</strong> async</a></li><li class="chapter-item expanded "><a href="../rust/enum.html"><strong aria-hidden="true">1.5.</strong> enum</a></li><li class="chapter-item expanded "><a href="../rust/collections.html"><strong aria-hidden="true">1.6.</strong> collections</a></li><li class="chapter-item expanded "><a href="../rust/variable.html"><strong aria-hidden="true">1.7.</strong> variable</a></li><li class="chapter-item expanded "><a href="../rust/string-less-than-greater-than-number.html"><strong aria-hidden="true">1.8.</strong> string&lt;-&gt;number</a></li><li class="chapter-item expanded "><a href="../rust/ownership.html"><strong aria-hidden="true">1.9.</strong> ownership</a></li><li class="chapter-item expanded "><a href="../rust/lifetime.html"><strong aria-hidden="true">1.10.</strong> lifetime</a></li><li class="chapter-item expanded "><a href="../rust/string.html"><strong aria-hidden="true">1.11.</strong> string</a></li><li class="chapter-item expanded "><a href="../rust/c-greater-than-rust.html"><strong aria-hidden="true">1.12.</strong> c&lt;-&gt;rust</a></li><li class="chapter-item expanded "><a href="../rust/creat.html"><strong aria-hidden="true">1.13.</strong> creat</a></li><li class="chapter-item expanded "><a href="../rust/macro.html"><strong aria-hidden="true">1.14.</strong> macro_rules</a></li><li class="chapter-item expanded "><a href="../rust/proc-macro.html"><strong aria-hidden="true">1.15.</strong> proc-macro</a></li></ol></li><li class="chapter-item expanded "><a href="../cpp/SUMMARY.html"><strong aria-hidden="true">2.</strong> C&amp;CPP笔记</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../cpp/syntax.html" class="active"><strong aria-hidden="true">2.1.</strong> 语法</a></li><li class="chapter-item expanded "><a href="../cpp/debug.html"><strong aria-hidden="true">2.2.</strong> 调试与错误</a></li><li class="chapter-item expanded "><a href="../cpp/stdarg.h.html"><strong aria-hidden="true">2.3.</strong> 不定参数</a></li><li class="chapter-item expanded "><a href="../cpp/za-xiang.html"><strong aria-hidden="true">2.4.</strong> 杂项</a></li><li class="chapter-item expanded "><a href="../cpp/zi-fu-chuan.html"><strong aria-hidden="true">2.5.</strong> 字符串</a></li><li class="chapter-item expanded "><a href="../cpp/socket.html"><strong aria-hidden="true">2.6.</strong> 网络</a></li><li class="chapter-item expanded "><a href="../cpp/wen-jian.html"><strong aria-hidden="true">2.7.</strong> 文件</a></li><li class="chapter-item expanded "><a href="../cpp/jin-cheng.html"><strong aria-hidden="true">2.8.</strong> 进程</a></li><li class="chapter-item expanded "><a href="../cpp/pthread.html"><strong aria-hidden="true">2.9.</strong> 线程</a></li><li class="chapter-item expanded "><a href="../cpp/xin-hao.html"><strong aria-hidden="true">2.10.</strong> 信号</a></li><li class="chapter-item expanded "><a href="../cpp/guan-dao.html"><strong aria-hidden="true">2.11.</strong> 管道</a></li><li class="chapter-item expanded "><a href="../cpp/shi-jian.html"><strong aria-hidden="true">2.12.</strong> 时间</a></li><li class="chapter-item expanded "><a href="../cpp/dong-tai-jia-zai-ku.html"><strong aria-hidden="true">2.13.</strong> 动态加载库</a></li><li class="chapter-item expanded "><a href="../cpp/chang-yong-suan-fa.html"><strong aria-hidden="true">2.14.</strong> 常用算法</a></li><li class="chapter-item expanded "><a href="../cpp/gcchun-bian-hui-bian.html"><strong aria-hidden="true">2.15.</strong> C调用汇编</a></li><li class="chapter-item expanded "><a href="../cpp/hui-bian-ji-cun-qi.html"><strong aria-hidden="true">2.16.</strong> 汇编寄存器</a></li><li class="chapter-item expanded "><a href="../cpp/hui-bian-chang-yong-zhi-ling.html"><strong aria-hidden="true">2.17.</strong> 汇编常用指令</a></li><li class="chapter-item expanded "><a href="../cpp/jin-cheng-du-xie-wen-jian-suo.html"><strong aria-hidden="true">2.18.</strong> 进程读写文件锁</a></li><li class="chapter-item expanded "><a href="../cpp/phpzhong-jiyu-atomic-de-zi-xuan-suo-shi-xian.html"><strong aria-hidden="true">2.19.</strong> PHP中基于atomic的自旋锁实现</a></li><li class="chapter-item expanded "><a href="../cpp/chang-liang-zi-fu-chuan-pi-liang-ying-she.html"><strong aria-hidden="true">2.20.</strong> PHP中常量字符串批量映射</a></li><li class="chapter-item expanded "><a href="../cpp/tcpudpxie-yi-xiang-jie.html"><strong aria-hidden="true">2.21.</strong> TCP/UDP包示例</a></li><li class="chapter-item expanded "><a href="../cpp/xi-tong-diao-yong-zhong-ding-yi.html"><strong aria-hidden="true">2.22.</strong> 系统函数重定义</a></li><li class="chapter-item expanded "><a href="../cpp/bit-op.html"><strong aria-hidden="true">2.23.</strong> 加减乘除位运算</a></li></ol></li><li class="chapter-item expanded "><a href="../other/SUMMARY.html"><strong aria-hidden="true">3.</strong> JS和其他笔记</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../other/react-native.html"><strong aria-hidden="true">3.1.</strong> react-native</a></li><li class="chapter-item expanded "><a href="../other/rxjs.html"><strong aria-hidden="true">3.2.</strong> rxjs</a></li><li class="chapter-item expanded "><a href="../other/vim.html"><strong aria-hidden="true">3.3.</strong> vim</a></li><li class="chapter-item expanded "><a href="../other/css-flex.html"><strong aria-hidden="true">3.4.</strong> css flex</a></li><li class="chapter-item expanded "><a href="../other/docker.html"><strong aria-hidden="true">3.5.</strong> docker</a></li><li class="chapter-item expanded "><a href="../other/es6.html"><strong aria-hidden="true">3.6.</strong> es6</a></li><li class="chapter-item expanded "><a href="../other/react.html"><strong aria-hidden="true">3.7.</strong> react</a></li></ol></li><li class="chapter-item expanded "><a href="../php/SUMMARY.html"><strong aria-hidden="true">4.</strong> PHP笔记</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../php/composer.html"><strong aria-hidden="true">4.1.</strong> composer</a></li><li class="chapter-item expanded "><a href="../php/ext.html"><strong aria-hidden="true">4.2.</strong> 扩展开发</a></li><li class="chapter-item expanded "><a href="../php/php7-feature.html"><strong aria-hidden="true">4.3.</strong> php7一些特性</a></li><li class="chapter-item expanded "><a href="../php/sort.html"><strong aria-hidden="true">4.4.</strong> php快速排序</a></li><li class="chapter-item expanded "><a href="../php/larvale.html"><strong aria-hidden="true">4.5.</strong> larvale</a></li><li class="chapter-item expanded "><a href="../php/re2candbison.html"><strong aria-hidden="true">4.6.</strong> re2c&amp;bison</a></li><li class="chapter-item expanded "><a href="../php/rabbitmq.html"><strong aria-hidden="true">4.7.</strong> rabbitmq</a></li><li class="chapter-item expanded "><a href="../php/proto.html"><strong aria-hidden="true">4.8.</strong> proto</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">shanliu blog</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/shanliu/blog" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="语法"><a class="header" href="#语法">语法</a></h1>
+<ol>
+<li>引入文件
+<ul>
+<li>
+<p>系统头文件 [常用头文件]</p>
+<pre><code class="language-c">//C头
+#include &lt;stdio.h&gt; //IO操作
+#include &lt;stdlib.h&gt;  //内存分配，随机数，排序等常用函数
+#include &lt;time.h&gt; //时间操作
+#include &lt;stdarg.h&gt; //不定参数
+#include &lt;signal.h&gt; //信号
+#include &lt;setjmp.h&gt; //异常处理函数，如信号跳转点函数 sigsetjmp
+#include &lt;sys/wait.h&gt; //进程结束wait waitpid 等函数
+#include &lt;unistd.h&gt; //系统调用，pipe，fork，getpid，IO（read,write,close等）
+#include &lt;fcntl.h&gt; //open等底层函数
+#include &lt;sys/types.h&gt; //基本类型定义
+#include &lt;sys/stat.h&gt; //文件状态信息
+#include &lt;string.h&gt; //字符操作函数 如strcpy strlen等函数
+#include &lt;sys/socket.h&gt; //网络操作函数 如：socket inet_pton listen 等函数
+#include &lt;pthread.h&gt; //线程处理函数
+#include &lt;ctype.h&gt; //字符处理 如 tolower toupper 等
+#include &lt;assert.h&gt; //断言函数
+#include &lt;errno.h&gt; //错误码定义
+#include &lt;limits.h&gt; //常用数据类型最值
+#include &lt;math.h&gt; //常用数学操作函数
+#include &lt;wchar.h&gt; //宽字符处理，类似string.h
+#include &lt;wctype.h&gt; //宽字符处理，类似ctype.h
+#include &lt;complex.h&gt;　　 //复数处理
+#include &lt;fenv.h&gt;　　　　//浮点环境
+#include &lt;inttypes.h&gt;　　//整数格式转换
+#include &lt;stdbool.h&gt;　　 //布尔环境
+#include &lt;stdint.h&gt;　　　//整型环境
+#include &lt;tgmath.h&gt;　　　//通用类型数学宏
+//C++头
+#include &lt;algorithm&gt;　　　 //STL 通用算法
+#include &lt;bitset&gt;　　　　　//STL 位集容器
+#include &lt;cctype&gt;         //字符处理
+#include &lt;cerrno&gt; 　　　　 //定义错误码
+#include &lt;cfloat&gt;　　　　 //浮点数处理
+#include &lt;ciso646&gt;         //对应各种运算符的宏
+#include &lt;climits&gt; 　　　　//定义各种数据类型最值的常量
+#include &lt;clocale&gt; 　　　　//定义本地化函数
+#include &lt;cmath&gt; 　　　　　//定义数学函数
+#include &lt;complex&gt;　　　　 //复数类
+#include &lt;csignal&gt;         //信号机制支持
+#include &lt;csetjmp&gt;         //异常处理支持
+#include &lt;cstdarg&gt;         //不定参数列表支持
+#include &lt;cstddef&gt;         //常用常量
+#include &lt;cstdio&gt; 　　　　 //定义输入／输出函数
+#include &lt;cstdlib&gt; 　　　　//定义杂项函数及内存分配函数
+#include &lt;cstring&gt; 　　　　//字符串处理
+#include &lt;ctime&gt; 　　　　　//定义关于时间的函数
+#include &lt;cwchar&gt; 　　　　 //宽字符处理及输入／输出
+#include &lt;cwctype&gt; 　　　　//宽字符分类
+#include &lt;deque&gt;　　　　　 //STL 双端队列容器
+#include &lt;exception&gt;　　　 //异常处理类
+#include &lt;fstream&gt; 　　　 //文件输入／输出
+#include &lt;functional&gt;　　　//STL 定义运算函数（代替运算符）
+#include &lt;limits&gt; 　　　　 //定义各种数据类型最值常量
+#include &lt;list&gt;　　　　　　//STL 线性列表容器
+#include &lt;locale&gt;         //本地化特定信息
+#include &lt;map&gt;　　　　　　 //STL 映射容器
+#include &lt;memory&gt;         //STL通过分配器进行的内存分配
+#include &lt;new&gt;            //动态内存分配
+#include &lt;numeric&gt;         //STL常用的数字操作
+#include &lt;iomanip&gt; 　　　 //参数化输入／输出
+#include &lt;ios&gt;　　　　　　 //基本输入／输出支持
+#include &lt;iosfwd&gt;　　　　　//输入／输出系统使用的前置声明
+#include &lt;iostream&gt; 　　　//数据流输入／输出
+#include &lt;istream&gt;　　　　 //基本输入流
+#include &lt;iterator&gt;        //STL迭代器
+#include &lt;ostream&gt;　　　　 //基本输出流
+#include &lt;queue&gt;　　　　　 //STL 队列容器
+#include &lt;set&gt;　　　　　　 //STL 集合容器
+#include &lt;sstream&gt;　　　　 //基于字符串的流 stringstream等
+#include &lt;stack&gt;　　　　　 //STL 堆栈容器
+#include &lt;stdexcept&gt;　　　 //标准异常类
+#include &lt;streambuf&gt;　　　 //底层输入／输出支持
+#include &lt;string&gt;　　　　　//字符串类
+#include &lt;typeinfo&gt;        //运行期间类型信息
+#include &lt;utility&gt;　　　　 //STL 通用模板类
+#include &lt;valarray&gt;        //对包含值的数组的操作
+#include &lt;vector&gt;　　　　　//STL 动态数组容器
+</code></pre>
+</li>
+<li>
+<p>自定义头文件</p>
+<pre><code class="language-c">#include &lt;comst.h&gt;
+#include &lt;comst.hpp&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+<li>宏 常量 变量
+<ul>
+<li>
+<p>宏</p>
+<pre><code class="language-c">// 
+#ifndef PI
+#define S(a,b) a+b;/*定义宏*/
+#endif
+#define a1(b) #b // 一个#号说明b被当成一个字符串 结果为 &quot;b&quot;
+#define a2(b) s##b //两个#号表示b被当成字符串且与字符s链接
+#define a3()  do{ }while(0) //复杂定义使用,保证任何场合都适用
+</code></pre>
+</li>
+<li>
+<p>常量</p>
+<pre><code class="language-c">const int v1 = 100;定义类型常量
+</code></pre>
+</li>
+<li>
+<p>变量定义问题</p>
+<pre><code class="language-c">register int i;//i会放入寄存器
+////////////////////////////////////////////////////////////////
+//struct 的声明可以省略typedef,注意事项:
+//内存对齐规则
+//结构体大小必须是结构体中最大的类型的倍数
+//结构成员的起始位置必须是该类型(基本数据类型)的大小的倍数
+//结构体省内存方法
+//成员小的放置于前面,相同大小的尽量放置于一块,成倍数的放置于相邻位置
+////////////////////////////////////////////////////////////////
+//结构体1
+struct struct1
+{
+int day;
+};
+//
+//结构体2
+typedef struct{
+char c;
+} struct2;
+//struct2 *p;
+//p=(struct2 *)malloc(sizeof(struct2));//动态分配内存
+////////////////////////////////////////////////////////////////
+//联合1
+union var{  
+long int l;  
+int i;  
+};
+//
+//联合2
+typedef union{
+char c;
+int a;
+} var1;
+////////////////////////////////////////////////////////////////
+//enum 是整形,且不会有类型验证
+enum e1{HI}; 
+enum e2{GOOD};
+enum e1 a=HI;
+enum e2 b=GOOD;
+//a==b true
+////////////////////////////////////////////////////////////////
+//函数指针
+typedef void(*fn)(void *m);
+void hi(void *m){
+printf(&quot;%s&quot;,&quot;hi&quot;);
+};
+fn b=&amp;hi;
+////////////////////////////////////////////////////////////////
+//空指针 void*
+void* k=(void *)(0);
+////////////////////////////////////////////////////////////////
+//数组长度
+int a[]={1,2};//a 为数组名，非指针，但数组名有类指针功能
+int len=sizeof(a)/sizeof(a[0]);
+</code></pre>
+</li>
+<li>
+<p>自动变量类型</p>
+<pre><code class="language-c">////////////GUNC///////////////
+int a=1;
+typeof(a) b=a;
+printf(&quot;%d&quot;,b);
+//////////C11////////////
+int a=1;
+auto b=a;
+printf(&quot;%d&quot;,b);
+</code></pre>
+</li>
+<li>
+<p>变量作用域和优先级</p>
+<pre><code class="language-c">//文件内变量，文件外不可见
+static int w1=100;
+//C++中，局部变量存在与{}中
+bool a=true;
+while(a){
+int i=1;
+a=false;
+}
+cout &lt;&lt; i;//未定义
+for(int i=1;i&lt;2;i++){}
+cout&lt;&lt; i;//未定义
+////////////////////////////////////////////////////////////////
+//引用其他文件定义，即其他文件有定义 int a;
+extern int a;
+////////////////////////////////////////////////////////////////
+//++问题
+int t1 = 5, t2 = 7;
+t1+++t2;//12 t1++ +t2 ++后为执行后加 ++前为执行前加
+</code></pre>
+</li>
+<li>
+<p>变量引用 1. int&amp; 表示一个引用,引用看着操作对象的别名 2. 引用跟引用对象的内存地址相同</p>
+<pre><code class="language-c">int k=10;
+int&amp;rk=k;
+//&amp;k==&amp;rk
+</code></pre>
+<ol>
+<li>
+<p>引用定义时初始化，创建时必须绑定操作对象</p>
+<pre><code class="language-c">int k=10;
+//int&amp;b;
+//b=k;wrong
+int&amp; b=k;
+</code></pre>
+</li>
+<li>
+<p>形参引用为传引用</p>
+<pre><code class="language-c">int a(int &amp;b){
+return 1;
+}
+int main(){
+int b=2;
+a(b);
+}
+</code></pre>
+</li>
+<li>
+<p>返回为以引用时候，可以把返回值赋值</p>
+<pre><code class="language-c">struct a{
+int id;
+}
+a va;
+a &amp; fn(){
+return va;
+}
+int main(){
+fn().id=10;
+return 0;
+}
+</code></pre>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>
+<p>字符数字转换</p>
+<pre><code class="language-c">/////////////////////////数字转字符//////////////////////////////
+//-----------------------------C-------------------------------
+//C方式1 标准方式
+#include &lt;stdio.h&gt;
+int n=1000;
+char ns[5];
+snprintf(ns,5,&quot;%d&quot;,n);
+printf(&quot;%s&quot;,ns);
+//
+//C方式2,浮点数
+double value= 86.789e5;
+int dec, sign;
+int ndig = 5;
+//参数:浮点数,要转换的位数,小数点的位置(返回),正或负数(返回)
+//返回:连续的字符串,无小数点
+char *p = ecvt(value,ndig,&amp;dec,&amp;sign);
+//跟上面一样,但结果会四舍五入
+char *p = fcvt(value,ndig,&amp;dec,&amp;sign);
+//
+//C方式3
+string[10];
+//整数,存储的字符串,整数进制(2,10等) 后面没有\0结束
+itoa(int, string*, 10);
+//
+//-------------------------C++-------------------------------
+//C++方式1
+#include &lt;string&gt;
+string sinta(&quot;1234&quot;);
+const char *tchar=sinta.c_str();
+//
+//C++方式2
+#include &lt;string&gt;
+#include &lt;sstream&gt;
+int inta=12345;
+stringstream tsinta;
+tsinta &lt;&lt; inta;
+string sinta =tsinta.str();
+//或者，注意流的 &lt;&lt; &gt;&gt; 重载
+string sinta; 
+tsinta &gt;&gt; sinta;
+//
+/////////////////////////字符转数字//////////////////////////////
+//C方式 1
+#include &lt;stdlib.h&gt;
+float fa=atof(&quot;10.1&quot;);//字符串转浮点
+int ia=atoi(&quot;10&quot;);//字符串转整形
+long int la=atol(&quot;10&quot;);//字符串转整形
+//
+//C方式 2 标准方式
+#include &lt;stdio.h&gt;
+int a;
+sscanf(&quot;2006&quot;, &quot;%d&quot;, &amp;a);//字符转数值
+//C++方式
+#include &lt;string&gt;
+#include &lt;sstream&gt;
+int a;
+string str = &quot;-1024&quot;;
+istringstream issInt(str);
+issInt &gt;&gt; a;
+</code></pre>
+</li>
+</ul>
+<ol>
+<li>函数 类
+<ul>
+<li>函数 [容许重名]
+<ol>
+<li>先根据函数名查找</li>
+<li>根据类型加数量匹配</li>
+<li>模糊匹配，类型转换</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code class="language-c">  //头文件
+  typedef void(*fnp)();
+  void hi();
+  fnp fn();
+  //实现
+  void hi(){
+   printf(&quot;%s&quot;,&quot;hi&quot;);
+  };
+  fnp fn(fnp){
+   return hi;
+  }
+  //使用
+  fnp c=fn(hi);
+  c();
+  ///////////////////////////模板/////////////////////////
+  //头文件
+  template&lt;typename T&gt; void swap(T&amp; t1, T&amp; t2);
+  //实现
+  template&lt;typename  T&gt; void swap(T&amp; t1, T&amp; t2) {
+     T tmpT;
+     tmpT = t1;
+     t1 = t2;
+     t2 = tmpT;
+  }
+  //使用
+  int t1=1;
+  int t2=2;
+  swap&lt;int&gt;(t1,t2);
+</code></pre>
+<ul>
+<li>
+<p>类 1. 基本定义</p>
+<pre><code class="language-c">//头文件 hpp
+struct test{
+public:
+   test();
+   int number1;
+   static int number2;
+   void fn1();
+   static void fn2();
+   ~test();
+   inline void inlinefn(){
+     //inline 必须写到头文件中
+   };
+protected:
+   char* number3;
+   static char number4[10];
+   void fn3();
+   static void fn4();
+private:
+   int number5;
+   static char* number6;
+   void fn5();
+   static void fn6();
+};
+//实现
+int test::number2 = 1;
+char test::number4[10]=&quot;init char&quot;;
+char* test::number6=NULL;
+test::test():number1(10),number5(10){//初始化成员值
+//构造函数
+};
+void test::~test(){
+//析构函数
+}
+void test::fn1(){
+ printf(&quot;%d&quot;,this-&gt;number5);
+}
+void test::fn2(){
+}
+void test::fn3(){
+}
+void test::fn4(){
+}
+void test::fn5(){
+}
+void test::fn6(){
+}
+</code></pre>
+<ol>
+<li>
+<p>修饰符</p>
+<pre><code class="language-c">void mb(){
+}
+class objvar{
+public:
+objvar(int a,int b){
+}
+}
+class obj{
+public:
+obj (const obj&amp; objvar){
+//拷贝构造函数,一般有内存拷贝时实现
+//声明时：obj t=varobj 或 obj t(varobj) 调用
+//动态创建：obj* t=new obj(varobj);
+//参数传递：void test(obj t){} 参数调用时
+}
+obj():a(10),b(10),ob(1,2){//构造函数 初始化 成员变量
+//一定会执行
+}
+obj(int a,int b=10){
+}
+objvar ob;
+int a;
+void ma(){
+mb();//=this-&gt;mb();
+::mb();//使用全局函数
+return a+b;//= this-&gt;a+this-&gt;b;
+}
+virtual ～obj(){//加上virtual 有利于释放资源
+//free res
+}
+protected:
+int b;
+virtual void mb(){}
+private:
+int c;
+}
+strcut tobj{//抽象类
+public:
+virtual void vmb(int&amp; b)=0;//纯虚函数
+}
+struct cobj : public obj,public tobj{
+//public private protected 继承方式
+//支持多重继承
+public:
+cobj(){
+obj::mb();//call parent method
+}
+～cobj(){
+//free res
+}
+void vmb(int&amp; b){
+//实现纯虚函数
+}
+protected:
+void mb(){
+//当子类对象转为父类指针调用时候
+//virtual 函数会调用此方法，否则调用父方法
+}
+}
+int main(){
+int b(10); // int b=10;
+int t(b);//= int t=b;
+obj a(10,20);
+obj*pa=new a(10,30);
+delete pa;
+int*pb= new int[1024];//连续的对象申请
+delete [] pb;
+return 0;
+}
+</code></pre>
+</li>
+<li>
+<p>操作符重载</p>
+<pre><code class="language-c">class a{
+public:
+int t[10];
+a operator +(const a&amp; avar);//+-* /
+//包含多个元素，方便操作,返回引用方便操作左值
+int&amp; operator [](int index);
+//比较对象，avar可以是非class a
+bool operator ==(const a&amp; avar);
+//类型转换
+operator int();
+operator const char*();
+//输入输出
+a&amp; operator &lt;&lt;(int b);//输出
+//privae ~~
+private:
+string a(&quot;aaa&quot;);
+}
+//对class a的+操作进行重载
+//实现 operator+
+a::operator+(const a&amp; var){
+//code~~
+}
+//实现 operator[]
+int&amp; a::operator[](int index){
+return t[index];
+}
+//实现 operator==
+bool a::operator ==(const a&amp; avar){
+return true;
+}
+//实现 operator type
+a::operator int(){
+return 1;
+}
+a::operator const char*(){
+return a.c_char();
+}
+//实现 operator &lt;&lt;
+a&amp; a::operator&lt;&lt;(int a){//输出
+printf(&quot;%d&quot;,a);
+return *this;
+}
+//全局操作符重载
+//全局操作符重载 对全局的+操作进行重载
+a operator+(const a&amp; vara,const a&amp; varb ){
+//code ~~
+}
+//两种都存在时候，会调用类操作符
+int main(){
+a vara;
+a varb;
+vara+varb;//operator +
+vara[1];//operator []
+vara==varb;//operator ==
+int t =(int)vara;//operator ()
+varb &lt;&lt;1;//operator &lt;&lt;
+return 0;
+}
+</code></pre>
+</li>
+<li>
+<p>内部类</p>
+<pre><code class="language-c">class a{
+public:
+class b{
+public:
+void t();
+}
+}
+//
+void a::b::t(){
+printf(&quot;out&quot;);
+}
+int main(){
+new a::b();
+}
+</code></pre>
+</li>
+<li>
+<p>模板类</p>
+<pre><code class="language-c">//头文件
+template &lt;class T&gt;class ttest{
+public:
+ttest();
+~ttest();
+void sett(T t);
+T gett();
+private:
+T *m_pT;
+};
+//实现
+template &lt;class  T&gt;  ttest&lt;T&gt;::ttest(){
+m_pT = new T[1];
+}
+template &lt;class T&gt;  ttest&lt;T&gt;::~ttest() {
+delete [] m_pT ;
+}
+template &lt;class T&gt; void ttest&lt;T&gt;::sett(T t) {
+m_pT[0] = t;
+}
+template &lt;class T&gt; T ttest&lt;T&gt;::gett() {
+T t = m_pT[0];
+return t;
+}
+//使用
+ttest&lt;int&gt; tvar;
+tvar.sett(1);
+printf(&quot;%d&quot;,tvar.gett());
+</code></pre>
+</li>
+<li>
+<p>类函数指针</p>
+<pre><code class="language-c">//头文件
+class ru_m {
+public:
+ru_m();
+typedef int (ru_m::*p)();
+p get_m();
+int show();
+};
+//实现
+int ru_m::show(){
+return 10000;
+}
+ru_m::p ru_m::get_m(){
+ru_m::p vc;
+//不能是this-&gt;show c++ 中对象成员函数为偏移非指针
+vc=&amp;ru_m::show;
+return vc;
+}
+//使用
+int main()
+{
+ru_m r;
+ru_m::p p=r.get_m();
+printf(&quot;%d&quot;,(r.*p)());
+return 0;
+}
+</code></pre>
+</li>
+<li>
+<p>模板关键字typename和class</p>
+<blockquote>
+<ol>
+<li>
+<p>模板定义语法中关键字class与typename的作用完全一样。</p>
+</li>
+<li>
+<p>除class和typename外还可以用其他类型定义模板,如以下</p>
+<pre><code class="language-c">//头文件
+template&lt;typename T,int MAX&gt; void testtemplate(T t1);
+//实现
+template&lt;typename  T,int MAX&gt; void testtemplate(T t1) {
+T b[MAX];
+for(T i=MAX;i&gt;0;i--){
+b[i]=t1;
+printf(&quot;%d&quot;,b[i]);
+}
+}
+//使用
+int t1=1;
+testtemplate&lt;int,10&gt;(t1);
+</code></pre>
+</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
+<ol>
+<li>
+<p>名字空间</p>
+<pre><code class="language-cpp">namespace myname{
+class a{}
+}
+namespace myname1{
+class a{}
+}
+using myname1::a;//单个
+using namespace std;//全部
+int main(){
+myname::a avar myname::a;
+a bvar a;
+cout &lt;&lt;&quot;hi&quot;;
+}
+</code></pre>
+</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../cpp/SUMMARY.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../cpp/debug.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../cpp/SUMMARY.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../cpp/debug.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

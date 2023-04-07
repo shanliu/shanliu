@@ -1,0 +1,848 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Trait - shanliu blog</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../rust/SUMMARY.html"><strong aria-hidden="true">1.</strong> RUST笔记</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../rust/base.html"><strong aria-hidden="true">1.1.</strong> 一些概念</a></li><li class="chapter-item expanded "><a href="../rust/trait.html" class="active"><strong aria-hidden="true">1.2.</strong> Trait</a></li><li class="chapter-item expanded "><a href="../rust/mod.html"><strong aria-hidden="true">1.3.</strong> mod</a></li><li class="chapter-item expanded "><a href="../rust/async.html"><strong aria-hidden="true">1.4.</strong> async</a></li><li class="chapter-item expanded "><a href="../rust/enum.html"><strong aria-hidden="true">1.5.</strong> enum</a></li><li class="chapter-item expanded "><a href="../rust/collections.html"><strong aria-hidden="true">1.6.</strong> collections</a></li><li class="chapter-item expanded "><a href="../rust/variable.html"><strong aria-hidden="true">1.7.</strong> variable</a></li><li class="chapter-item expanded "><a href="../rust/string-less-than-greater-than-number.html"><strong aria-hidden="true">1.8.</strong> string&lt;-&gt;number</a></li><li class="chapter-item expanded "><a href="../rust/ownership.html"><strong aria-hidden="true">1.9.</strong> ownership</a></li><li class="chapter-item expanded "><a href="../rust/lifetime.html"><strong aria-hidden="true">1.10.</strong> lifetime</a></li><li class="chapter-item expanded "><a href="../rust/string.html"><strong aria-hidden="true">1.11.</strong> string</a></li><li class="chapter-item expanded "><a href="../rust/c-greater-than-rust.html"><strong aria-hidden="true">1.12.</strong> c&lt;-&gt;rust</a></li><li class="chapter-item expanded "><a href="../rust/creat.html"><strong aria-hidden="true">1.13.</strong> creat</a></li><li class="chapter-item expanded "><a href="../rust/macro.html"><strong aria-hidden="true">1.14.</strong> macro_rules</a></li><li class="chapter-item expanded "><a href="../rust/proc-macro.html"><strong aria-hidden="true">1.15.</strong> proc-macro</a></li></ol></li><li class="chapter-item expanded "><a href="../cpp/SUMMARY.html"><strong aria-hidden="true">2.</strong> C&amp;CPP笔记</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../cpp/syntax.html"><strong aria-hidden="true">2.1.</strong> 语法</a></li><li class="chapter-item expanded "><a href="../cpp/debug.html"><strong aria-hidden="true">2.2.</strong> 调试与错误</a></li><li class="chapter-item expanded "><a href="../cpp/stdarg.h.html"><strong aria-hidden="true">2.3.</strong> 不定参数</a></li><li class="chapter-item expanded "><a href="../cpp/za-xiang.html"><strong aria-hidden="true">2.4.</strong> 杂项</a></li><li class="chapter-item expanded "><a href="../cpp/zi-fu-chuan.html"><strong aria-hidden="true">2.5.</strong> 字符串</a></li><li class="chapter-item expanded "><a href="../cpp/socket.html"><strong aria-hidden="true">2.6.</strong> 网络</a></li><li class="chapter-item expanded "><a href="../cpp/wen-jian.html"><strong aria-hidden="true">2.7.</strong> 文件</a></li><li class="chapter-item expanded "><a href="../cpp/jin-cheng.html"><strong aria-hidden="true">2.8.</strong> 进程</a></li><li class="chapter-item expanded "><a href="../cpp/pthread.html"><strong aria-hidden="true">2.9.</strong> 线程</a></li><li class="chapter-item expanded "><a href="../cpp/xin-hao.html"><strong aria-hidden="true">2.10.</strong> 信号</a></li><li class="chapter-item expanded "><a href="../cpp/guan-dao.html"><strong aria-hidden="true">2.11.</strong> 管道</a></li><li class="chapter-item expanded "><a href="../cpp/shi-jian.html"><strong aria-hidden="true">2.12.</strong> 时间</a></li><li class="chapter-item expanded "><a href="../cpp/dong-tai-jia-zai-ku.html"><strong aria-hidden="true">2.13.</strong> 动态加载库</a></li><li class="chapter-item expanded "><a href="../cpp/chang-yong-suan-fa.html"><strong aria-hidden="true">2.14.</strong> 常用算法</a></li><li class="chapter-item expanded "><a href="../cpp/gcchun-bian-hui-bian.html"><strong aria-hidden="true">2.15.</strong> C调用汇编</a></li><li class="chapter-item expanded "><a href="../cpp/hui-bian-ji-cun-qi.html"><strong aria-hidden="true">2.16.</strong> 汇编寄存器</a></li><li class="chapter-item expanded "><a href="../cpp/hui-bian-chang-yong-zhi-ling.html"><strong aria-hidden="true">2.17.</strong> 汇编常用指令</a></li><li class="chapter-item expanded "><a href="../cpp/jin-cheng-du-xie-wen-jian-suo.html"><strong aria-hidden="true">2.18.</strong> 进程读写文件锁</a></li><li class="chapter-item expanded "><a href="../cpp/phpzhong-jiyu-atomic-de-zi-xuan-suo-shi-xian.html"><strong aria-hidden="true">2.19.</strong> PHP中基于atomic的自旋锁实现</a></li><li class="chapter-item expanded "><a href="../cpp/chang-liang-zi-fu-chuan-pi-liang-ying-she.html"><strong aria-hidden="true">2.20.</strong> PHP中常量字符串批量映射</a></li><li class="chapter-item expanded "><a href="../cpp/tcpudpxie-yi-xiang-jie.html"><strong aria-hidden="true">2.21.</strong> TCP/UDP包示例</a></li><li class="chapter-item expanded "><a href="../cpp/xi-tong-diao-yong-zhong-ding-yi.html"><strong aria-hidden="true">2.22.</strong> 系统函数重定义</a></li><li class="chapter-item expanded "><a href="../cpp/bit-op.html"><strong aria-hidden="true">2.23.</strong> 加减乘除位运算</a></li></ol></li><li class="chapter-item expanded "><a href="../other/SUMMARY.html"><strong aria-hidden="true">3.</strong> JS和其他笔记</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../other/react-native.html"><strong aria-hidden="true">3.1.</strong> react-native</a></li><li class="chapter-item expanded "><a href="../other/rxjs.html"><strong aria-hidden="true">3.2.</strong> rxjs</a></li><li class="chapter-item expanded "><a href="../other/vim.html"><strong aria-hidden="true">3.3.</strong> vim</a></li><li class="chapter-item expanded "><a href="../other/css-flex.html"><strong aria-hidden="true">3.4.</strong> css flex</a></li><li class="chapter-item expanded "><a href="../other/docker.html"><strong aria-hidden="true">3.5.</strong> docker</a></li><li class="chapter-item expanded "><a href="../other/es6.html"><strong aria-hidden="true">3.6.</strong> es6</a></li><li class="chapter-item expanded "><a href="../other/react.html"><strong aria-hidden="true">3.7.</strong> react</a></li></ol></li><li class="chapter-item expanded "><a href="../php/SUMMARY.html"><strong aria-hidden="true">4.</strong> PHP笔记</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../php/composer.html"><strong aria-hidden="true">4.1.</strong> composer</a></li><li class="chapter-item expanded "><a href="../php/ext.html"><strong aria-hidden="true">4.2.</strong> 扩展开发</a></li><li class="chapter-item expanded "><a href="../php/php7-feature.html"><strong aria-hidden="true">4.3.</strong> php7一些特性</a></li><li class="chapter-item expanded "><a href="../php/sort.html"><strong aria-hidden="true">4.4.</strong> php快速排序</a></li><li class="chapter-item expanded "><a href="../php/larvale.html"><strong aria-hidden="true">4.5.</strong> larvale</a></li><li class="chapter-item expanded "><a href="../php/re2candbison.html"><strong aria-hidden="true">4.6.</strong> re2c&amp;bison</a></li><li class="chapter-item expanded "><a href="../php/rabbitmq.html"><strong aria-hidden="true">4.7.</strong> rabbitmq</a></li><li class="chapter-item expanded "><a href="../php/proto.html"><strong aria-hidden="true">4.8.</strong> proto</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">shanliu blog</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/shanliu/blog" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <hr />
+<h2 id="约束-trait"><a class="header" href="#约束-trait">约束 Trait</a></h2>
+<blockquote>
+<p>基本示例</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">trait Atest{
+    fn aa0(self);
+   // fn aa1(mut self);//错误:trait不可以存在可变实体变量
+   // fn aab(mut a: Aa);//错误:trait不可以存在可变实体变量
+    fn aa2(&amp;self);
+    fn aa3(&amp;mut self);
+    //fn st2()-&gt;impl Debug; //错误:impl trait 只能对fn跟实体方法返回 trait 用Box&lt;dyn trait&gt;返回
+}
+#[derive(Debug)]
+enum etest1{
+    A(i32),
+    B(f64)
+}
+trait a&lt;T&gt;{
+
+}
+trait b&lt;T&gt;:a&lt;T&gt;{//带泛型继承
+
+}
+trait  ttest1{
+	//方法名不可相同.跟CPP不一样,同名方法要多态用泛型实现
+    fn fn1(&amp;self)-&gt;i32;//引用,可多次
+    fn fn2(self)-&gt;i32;//只执行一次
+}
+trait  ttest2:ttest1{//继承
+    fn fn3(&amp;self)-&gt;i32{
+		//注意: self为引用 &amp;self 为引用的引用
+        return 1;
+    }
+}
+impl ttest1 for etest1{
+    fn fn1(&amp;self) -&gt; i32 {
+        if let etest1::A(x) =*self{//模式匹配得到数据
+            return x;
+        }
+        return 0;
+    }
+    fn fn2(self) -&gt; i32 {
+        return 1;
+    }
+}
+impl etest1{
+    fn fn4(){}
+}
+impl ttest2 for etest1{}//继承实现,增加功能
+fn main() {
+    let s=etest1::A(1);
+    s.fn1();
+    s.fn3();
+    s.fn2();
+    etest1::fn4();
+}
+</code></pre></pre>
+<blockquote>
+<p>trait 不的函数不支持返回 impl Trait 类型,用Box&lt;dyn *&gt;返回</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">use std::future::Future;
+use std::pin::Pin;
+struct Sk&lt;'c&gt;{
+    a:&amp;'c str
+}
+struct Sa{}
+trait Ta{
+    //trait 的方法不支持 impl 返回
+    fn aa&lt;'c&gt;(&amp;self,sss:&amp;'c str)-&gt;Pin&lt;Box&lt;dyn Future&lt;Output=Sk&lt;'c&gt;&gt;+'c&gt;&gt;;
+}
+impl Ta for Sa{
+    fn aa&lt;'c&gt;(&amp;self,sss:&amp;'c str) -&gt;Pin&lt;Box&lt;dyn Future&lt;Output=Sk&lt;'c&gt;&gt;+'c&gt;&gt;{
+        let a=Sk{
+            a:sss
+        };
+        Box::pin(async move {a})
+    }
+}
+#[tokio::main]
+async fn main()  {
+    let sa=Sa{};
+    let b=&quot;ddd&quot;.to_string();
+    let b=b.as_str();
+    let m=sa.aa(b).await.a;
+    println!(&quot;{}&quot;,m);
+}
+
+</code></pre></pre>
+<blockquote>
+<p>带限制泛型实现trait</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">trait aa{
+    fn out(&amp;self)-&gt;i32{
+        return 1;
+    }
+}
+trait tl{}
+impl&lt;T:tl&gt; aa for T{}//给实现了tl的trait对象实现aa trait 注意:如果没限制会加到所有类型上
+
+struct dome1{}
+impl tl for dome1{}//dome1实现了 tl 所以实现aa
+
+fn main() {
+    (dome1{}).out();
+}
+</code></pre></pre>
+<blockquote>
+<p>全局泛型实现trait</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">trait aa{
+    fn out(&amp;self)-&gt;i32{
+        println!(&quot;ddd&quot;);
+        return 1;
+    }
+}
+impl&lt;T&gt; aa for T{}//等于给所有类型加了aa trait的out方法
+fn main() {
+    &quot;aa&quot;.out();
+    1.out();
+}
+</code></pre></pre>
+<blockquote>
+<p>全局泛型多个相同方法trait实现</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">trait aa{
+    fn out(&amp;self)-&gt;i32{
+        println!(&quot;ddd&quot;);
+        return 1;
+    }
+}
+trait bb{
+    fn out(&amp;self)-&gt;i32{
+        println!(&quot;ddd&quot;);
+        return 1;
+    }
+}
+impl&lt;T&gt; aa for T{}//等于给所有类型加了aa trait的out方法
+impl&lt;T&gt; bb for T{}//等于给所有类型加了bb trait的out方法
+fn main() {
+    bb::out(&amp;&quot;aa&quot;);//多次实现,必须手动指定调用那个trait方法
+}
+</code></pre></pre>
+<blockquote>
+<p>全局泛型跟结构实现方法同名</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">trait aa{
+    fn out(&amp;self){
+        println!(&quot;1&quot;);
+    }
+}
+impl&lt;T&gt; aa for T{}//等于给所有类型加了aa trait的out方法
+struct dome1{}
+impl dome1{
+    fn out(&amp;self){//跟全局泛型有同名out方法,会覆盖全局泛型方法
+        println!(&quot;2&quot;);
+    }
+}
+fn main() {
+    (dome1{}).out();
+    &quot;22&quot;.out();
+}
+</code></pre></pre>
+<blockquote>
+<p>dyn trait 对象和结构对象转换</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">struct aa{}
+impl aa{
+    fn aaa(&amp;self){
+        println!(&quot;ddd&quot;);
+    }
+}
+trait bb{}
+impl bb for aa{}
+fn main() {
+    let m=aa{};
+    let b= &amp;m as &amp;bb;//转为 dyn trait 对象
+    let c:&amp;aa;
+    unsafe { c=&amp;*(b as *const dyn bb as *const aa); }//dyn trait对象转为指定类型对象,自行保证类型安全
+    c.aaa();//转为指定类型对象后调用该类型方法
+}
+</code></pre></pre>
+<blockquote>
+<p>判断是否某类型 &amp;&amp; 泛型直接调用</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>println!(&quot;{}&quot;,(&amp;&quot;dddd&quot; as &amp;Any).is::&lt;i32&gt;());//判断是否实现某类型
+struct Atest{}
+struct Atest1{}
+println!(&quot;{}&quot;,(&amp;Atest{} as &amp;Any).is::&lt;Atest1&gt;());//判断自定义类型
+//注意 : 无法实现判断是否实现某 trait 
+<span class="boring">}
+</span></code></pre></pre>
+<blockquote>
+<p>动态triat对象返回 Box&lt;dyn triat&gt;  [动态分发]</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">trait ttest1{
+    fn out(&amp;self);
+}
+struct test1{}
+impl ttest1 for test1{
+    fn out(&amp;self){
+        println!(&quot;test fn1&quot;);
+    }
+}
+struct test2{}
+impl ttest1 for test2{
+    fn out(&amp;self){
+        println!(&quot;test fn2&quot;);
+    }
+}
+fn out(i:i32)-&gt;Box&lt;dyn ttest1&gt;{//返回动态对象方法 Box&lt;dyn trait&gt;
+    if(i&gt;0) {
+        return Box::new(test1 {});
+    }else{
+        return Box::new(test2 {});
+    }
+}
+fn main() {
+    let b=out(1);//返回动态对象 可以用any判断是什么对象
+    b.out();
+    let b=out(0);//返回动态对象
+    b.out();
+}
+</code></pre></pre>
+<blockquote>
+<p><code>impl trait</code> 对象返回 <code>静态分发,闭包就是其中一个实现</code></p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">use std::iter;
+use std::vec::IntoIter;
+// This is the exact same function, but its return type uses `impl Trait`.
+// Look how much simpler it is!
+fn combine_vecs(
+    v: Vec&lt;i32&gt;,
+    u: Vec&lt;i32&gt;,
+) -&gt; impl Iterator&lt;Item=i32&gt; {
+    v.into_iter().chain(u.into_iter()).cycle()
+}
+
+fn main() {
+    let v1 = vec![1, 2, 3];
+    let v2 = vec![4, 5];
+    let mut v3 = combine_vecs(v1, v2);
+    assert_eq!(Some(1), v3.next());
+    assert_eq!(Some(2), v3.next());
+    assert_eq!(Some(3), v3.next());
+    assert_eq!(Some(4), v3.next());
+    assert_eq!(Some(5), v3.next());
+    println!(&quot;all done&quot;);
+}
+</code></pre></pre>
+<blockquote>
+<p>通过 trait 实现类型约束</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>trait typeLimitTrait{}//自定义约束用trait
+impl typeLimitTrait for i32 {}//实现某类型
+impl typeLimitTrait for f32 {}//现某类型
+fn out1&lt;T:typeLimitTrait&gt;(a:T)-&gt;T{//限定泛型
+    return a;
+}
+<span class="boring">}
+</span></code></pre></pre>
+<blockquote>
+<p>模拟多态</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>trait MT1&lt;Ttest&gt;{
+    fn t1(a:Ttest){}
+}
+struct ST1{}
+impl MT1&lt;i32&gt; for ST1{
+    fn t1(a:i32){}
+}
+impl MT1&lt;i8&gt; for ST1{
+    fn t1(a:i8){}
+}
+<span class="boring">}
+</span></code></pre></pre>
+<blockquote>
+<p>同类型操作符重载</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">struct Foo {
+    value:i32
+}
+impl Add for Foo{
+    type Output = Self;
+    fn add(mut self, rhs: Self) -&gt; Self::Output {
+        self.value=self.value+rhs.value;
+        self
+    }
+}
+fn main() {
+    let mut x = Foo { value: 10 };
+    let mut b = Foo { value: 10 };
+    let c=x+b;
+}
+</code></pre></pre>
+<blockquote>
+<p>不同类型操作符重载和泛型限定</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">struct Foo {
+    value:i32
+}
+impl Add&lt;i32&gt; for Foo{
+    type Output = i32;
+    fn add(mut self, rhs: i32) -&gt; Self::Output {
+        return self.value+rhs;
+    }
+}
+//注意!!!! 限定 Add&lt;i32,Output=i32&gt; 而不是 Add&lt;i32&gt;
+//如果限定为 Add&lt;i32&gt; 则输出为 Add&lt;i32&gt;::Output 而不是 i32 因为 Add&lt;i32&gt;未指定 Output
+fn add&lt;T:Add&lt;i32,Output=i32&gt;&gt;(a:T)-&gt;i32{
+    let b=a+1;//可以+i32 是因为实现了 Add&lt;i32&gt; 
+    // 输出 b 为i32 是因为: 
+    // Add&lt;i32,Output=i32&gt; 让输入参数的返回为i32 
+    // impl Add&lt;i32&gt; for Foo 的 type Output = i32; // 让a+1 返回为i32
+    // 以上都是必须的
+    return b;
+}
+fn main() {
+    println!(&quot;{}&quot;,add(Foo { value: 10 }));
+    //Foo { value: 10 }+10 返回 i32 是因为 impl Add&lt;i32&gt; for Foo 的 type Output = i32;
+    //注意跟 add 函数中的区别
+    println!(&quot;{}&quot;,Foo { value: 10 }+10);
+}
+</code></pre></pre>
+<blockquote>
+<p>带泛型triat实现</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">
+//trait 泛型 T1=i8 表示默认泛型
+trait Dome1&lt;T,T1=i8&gt;{
+    //如果用作泛型限制,OUT1跟OUT2可以指定
+    // 不指定,调动完test1 的类型为 Dome1&lt;T,T1=i8&gt;::OUT1
+    // 指定 T:Dome1&lt;T,T1=i8,OUT1=i8,OUT2=i16&gt; 调动完test1 的类型为 i8
+    type OUT1;//内部泛型,实现时不写在外部
+    type OUT2;//注意:使用不能是 OUT2 必须为 Self:: 方式 例如 Self::OUT2
+    fn test1(&amp;self,a:T,b:T1)-&gt;Self::OUT1;//Self 表示当前类型
+    fn test2(&amp;self,a:T,b:T1)-&gt;Self::OUT2;
+}
+#[derive(Debug)]
+enum MYENUM{
+    a=1
+}
+//全部指定类型trait实现
+//指定T=i32,T1=i8实现
+impl Dome1&lt;i32,i8&gt; for MYENUM{
+    type OUT1=i32;
+    type OUT2=i8;
+    fn test1(&amp;self,a: i32, b: i8) -&gt; Self::OUT1 {//Self 表示当前类型 即:MYENUM
+        return a + b as i32;
+    }
+    fn test2(&amp;self,a: i32, b: i8) -&gt; Self::OUT2 {
+        //&amp;self 表示当前示例引用 可以 . 方式调用
+        return a as i8 + b ;
+    }
+}
+#[derive(Debug)]
+enum MYENUM1{
+    a=1
+}
+//使用Dome1默认的泛型trait实现
+impl Dome1&lt;i32&gt; for MYENUM1{
+    type OUT1=i32;
+    type OUT2=i8;
+    fn test1(&amp;self,a: i32, b: i8) -&gt; Self::OUT1 {
+        return a + b as i32;
+    }
+    fn test2(&amp;self,a: i32, b: i8) -&gt; Self::OUT2 {
+        return a as i8 + b ;
+    }
+}
+#[derive(Debug)]
+enum MYENUM2{
+    a=1
+}
+//实现时使用泛型方式实现泛型trait在指定类型
+impl&lt;T&gt; Dome1&lt;T&gt; for MYENUM2{
+    type OUT1 = T;
+    type OUT2 = i8;
+    fn test1(&amp;self, a: T, b: i8)-&gt;Self::OUT1{
+        return a;
+    }
+    fn test2(&amp;self, a: T, b: i8) -&gt;Self::OUT2 {
+        return b;
+    }
+}
+fn test1&lt;T&gt;(a:T)-&gt;i32
+    //where方式
+    //注意:用作限定时 内部OUT*不是必须写的
+    where T:Dome1&lt;i32,i8,OUT1=i32&gt;+Debug{
+    return a.test1(1,2);
+}
+fn main() {
+    let a=MYENUM1::a;
+    a.test1(1,2);
+    let b=MYENUM::a;
+    test1(b);
+    let c=MYENUM2::a;
+    c.test1(1, 2);//泛型自动推导
+}
+</code></pre></pre>
+<blockquote>
+<p>指定某泛型类型调用</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">trait Ltrait{
+    fn test(&amp;self);
+}
+impl Ltrait for i8{
+    fn test(&amp;self) {
+        println!(&quot;i8&quot;);
+    }
+}
+impl Ltrait for i32{
+    fn test(&amp;self) {
+        println!(&quot;i32&quot;);
+    }
+}
+fn bstest&lt;T:Ltrait&gt;(a:T){
+    //限制 a的可传入类型
+    a.test();
+}
+fn main() {
+    1i32.test();//调用已被赋值到类型方法
+    1i8.test();//调用已被赋值到类型方法
+    bstest::&lt;i8&gt;(1);//指定 Ltrait for i8 实现调用
+    // 全局泛型实现的指定类型调用
+    println!(&quot;{}&quot;,&lt;f32&gt;::from(1.0));//指定数据类型泛型调用
+}
+</code></pre></pre>
+<blockquote>
+<p>往dyn trait对象增加方法</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[test]
+fn test1(){
+    trait Aa{}
+    struct Bb{}
+    impl Bb{
+        fn out(&amp;self){
+            println!(&quot;aa&quot;);
+        }
+    }
+    impl Aa for Bb{}
+    impl dyn Aa{
+        //改动态对象增加方法
+        fn out(&amp;self){
+            println!(&quot;bb&quot;);
+        }
+    }
+    let b=Bb{};
+    b.out();//调动到Bb的out方法
+    (&amp;b as &amp;dyn Aa).out();//调用到 dyn Aa的方法
+}
+
+#[test]
+fn test2(){
+    trait Aa{}
+    trait Ac{
+        fn out(&amp;self);
+    }
+    struct Bb{}
+    impl Aa for Bb{}
+    impl Ac for dyn Aa{
+        //改动态对象增加triat实现
+        //实现Aa的方法存在out方法名时需指定triat调用
+        fn out(&amp;self){
+            println!(&quot;bb1&quot;);
+        }
+    }
+    let b=Bb{};
+    (&amp;b as &amp;dyn Aa).out();
+}
+
+#[test]
+fn test3(){
+    trait Aa{
+        fn out(&amp;self);
+    }
+    trait Ac{
+        fn out(&amp;self);
+    }
+    struct Ba{}
+    impl Aa for Ba{
+        //实现 trait
+        fn out(&amp;self){
+            println!(&quot;aa&quot;);
+        }
+    }
+    impl Ac for dyn Aa{
+        //动态对象重新实现某方法,需要指定该triat调用
+        //跟实现多个triat存在重名方法一致.
+        fn out(&amp;self){
+            Aa::out(self);
+            println!(&quot;bb&quot;);
+        }
+    }
+    let b=(&amp;Ba{} as &amp;dyn Aa);
+    Aa::out(b);
+    b.out();//等于调用 Aa::out(b);
+    Ac::out(b);//修改动态对象的指定方法
+}
+<span class="boring">}
+</span></code></pre></pre>
+<blockquote>
+<p>PhantomData 使用</p>
+</blockquote>
+<pre><code>fn main() {
+    struct Aa&lt;T&gt;{
+        a:i32,
+        _marker:std::marker::PhantomData&lt;T&gt;
+    }
+    Aa{
+        a: 0,
+        _marker:std::marker::PhantomData::default()
+    }
+    as Aa&lt;i32&gt;;//运行时泛型具体到某类型 PhantomData 类型未知,所以运行时不指定将出错
+}
+</code></pre>
+<blockquote>
+<p>通过泛型实现类型一级继承</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">struct Ptype&lt;SUBTYPE&gt;{
+    _marker:std::marker::PhantomData&lt;SUBTYPE&gt;
+}
+impl&lt;SUBTYPE&gt; Ptype&lt;SUBTYPE&gt;{
+    fn new()-&gt;Self{
+        Ptype{
+            _marker:std::marker::PhantomData::default()
+        }
+    }
+}
+struct Sub1Type{}
+impl Ptype&lt;Sub1Type&gt;{
+    fn aa(&amp;self)-&gt;i32{
+        return 1;
+    }
+}
+struct Sub2Type{}
+impl Ptype&lt;Sub2Type&gt;{
+    fn bb(&amp;self)-&gt;i32{
+        return 2;
+    }
+}
+fn main() {
+    print!(&quot;{}&quot;,(Ptype::new() as Ptype&lt;Sub1Type&gt;).aa());
+    print!(&quot;{}&quot;,(Ptype::new() as Ptype&lt;Sub2Type&gt;).bb());
+}
+#[test]
+fn test1(){
+    struct A&lt;SUBTYPE&gt;{
+        _marker:std::marker::PhantomData&lt;SUBTYPE&gt;
+    }
+    let t1:A&lt;i32&gt;=A{_marker:Default::default()};#运行时得到类型
+}
+//struct MYTYPE&lt;SUBTYPE&gt;
+// SUBTYPE:LIMIT_TRAIT
+//     实现 LIMIT_TRAIT 一批子类型增加方法实现
+//     SUBTYPE指定类型实现
+
+</code></pre></pre>
+<blockquote>
+<p>无指定类型实现trait调用问题</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">trait aaa1{
+    fn out(){}
+}
+trait aaa2{
+    fn out(&amp;self){
+    }
+}
+impl&lt;T&gt; aaa1 for T{}
+impl&lt;T&gt; aaa2 for T{}
+fn main() {
+    //aaa1::out(); //cannot infer type
+    aaa2::out(&amp;1);//能推导出当前附属到的类型
+}
+</code></pre></pre>
+<blockquote>
+<p>复合类型中泛型限定方法增加</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>trait Mlimit{}
+//impl&lt;T&gt; Mlimit for T{} //最顶层泛型 全局泛型实现
+struct Mytest&lt;T1&gt; {a:T1}
+//impl&lt;T1:Mlimit&gt; Mlimit for Mytest&lt;T1&gt; {} //类型实现 trait
+//impl&lt;T3&gt; Mytest&lt;T3&gt;{}//类型增加方法
+impl&lt;T3:Mlimit&gt; Mytest&lt;T3&gt;//给类型内部泛型限定下增加该类型方法
+{
+    fn fn1(self) {}
+}
+impl Mlimit for i32{}
+(Mytest{a:1}).fn1();
+<span class="boring">}
+</span></code></pre></pre>
+<blockquote>
+<p>泛型使用时不能做特化处理</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">
+trait IDB {}
+struct IMY1 {}
+impl IDB for IMY1 {}
+struct IMY2 {}
+impl IDB for IMY2 {}
+fn bind1&lt;T: IDB&gt;(_: T) {}
+struct F1&lt;DB:IDB&gt;{_tmp:DB}
+impl &lt;DB:IDB&gt;F1&lt;DB&gt;{
+    fn _myexec(_:DB)  {
+        //泛型不能特化处理
+        //bind1::&lt;DB&gt;(IMY1{});
+    }
+}
+impl F1&lt;IMY1&gt;{
+    fn myexec()  {
+        bind1(IMY1{});
+    }
+}
+impl F1&lt;IMY2&gt;{
+    fn myexec()  {
+        bind1(IMY2{});
+    }
+}
+fn main() {
+    F1::&lt;IMY1&gt;::myexec();
+    F1::&lt;IMY2&gt;::myexec();
+}
+</code></pre></pre>
+<blockquote>
+<p>泛型约束示例</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust">trait IDB {}
+struct IMY{}
+impl IDB for IMY{}
+trait Encode&lt;DB:IDB&gt; {}
+struct Query&lt;DB:IDB&gt;{
+    _a:DB
+}
+impl &lt;DB: IDB&gt; Query&lt;DB&gt; {
+    fn bind1&lt;T:Encode&lt;DB&gt; &gt;(&amp;self, _: T)  {}
+}
+impl Encode&lt;IMY&gt; for i32 {}
+fn main() {
+    fn myexec&lt;DB:IDB&gt;(pool:DB) 
+    where i32:Encode&lt;DB&gt; //加约束实现泛型替换关联
+    {
+        let res =Query{_a:pool};
+        res.bind1(1);
+    }
+    myexec::&lt;IMY&gt;(IMY{});
+}rs
+</code></pre></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../rust/base.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../rust/mod.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../rust/base.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../rust/mod.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

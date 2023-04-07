@@ -1,0 +1,396 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>进程 - shanliu blog</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../rust/SUMMARY.html"><strong aria-hidden="true">1.</strong> RUST笔记</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../rust/base.html"><strong aria-hidden="true">1.1.</strong> 一些概念</a></li><li class="chapter-item expanded "><a href="../rust/trait.html"><strong aria-hidden="true">1.2.</strong> Trait</a></li><li class="chapter-item expanded "><a href="../rust/mod.html"><strong aria-hidden="true">1.3.</strong> mod</a></li><li class="chapter-item expanded "><a href="../rust/async.html"><strong aria-hidden="true">1.4.</strong> async</a></li><li class="chapter-item expanded "><a href="../rust/enum.html"><strong aria-hidden="true">1.5.</strong> enum</a></li><li class="chapter-item expanded "><a href="../rust/collections.html"><strong aria-hidden="true">1.6.</strong> collections</a></li><li class="chapter-item expanded "><a href="../rust/variable.html"><strong aria-hidden="true">1.7.</strong> variable</a></li><li class="chapter-item expanded "><a href="../rust/string-less-than-greater-than-number.html"><strong aria-hidden="true">1.8.</strong> string&lt;-&gt;number</a></li><li class="chapter-item expanded "><a href="../rust/ownership.html"><strong aria-hidden="true">1.9.</strong> ownership</a></li><li class="chapter-item expanded "><a href="../rust/lifetime.html"><strong aria-hidden="true">1.10.</strong> lifetime</a></li><li class="chapter-item expanded "><a href="../rust/string.html"><strong aria-hidden="true">1.11.</strong> string</a></li><li class="chapter-item expanded "><a href="../rust/c-greater-than-rust.html"><strong aria-hidden="true">1.12.</strong> c&lt;-&gt;rust</a></li><li class="chapter-item expanded "><a href="../rust/creat.html"><strong aria-hidden="true">1.13.</strong> creat</a></li><li class="chapter-item expanded "><a href="../rust/macro.html"><strong aria-hidden="true">1.14.</strong> macro_rules</a></li><li class="chapter-item expanded "><a href="../rust/proc-macro.html"><strong aria-hidden="true">1.15.</strong> proc-macro</a></li></ol></li><li class="chapter-item expanded "><a href="../cpp/SUMMARY.html"><strong aria-hidden="true">2.</strong> C&amp;CPP笔记</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../cpp/syntax.html"><strong aria-hidden="true">2.1.</strong> 语法</a></li><li class="chapter-item expanded "><a href="../cpp/debug.html"><strong aria-hidden="true">2.2.</strong> 调试与错误</a></li><li class="chapter-item expanded "><a href="../cpp/stdarg.h.html"><strong aria-hidden="true">2.3.</strong> 不定参数</a></li><li class="chapter-item expanded "><a href="../cpp/za-xiang.html"><strong aria-hidden="true">2.4.</strong> 杂项</a></li><li class="chapter-item expanded "><a href="../cpp/zi-fu-chuan.html"><strong aria-hidden="true">2.5.</strong> 字符串</a></li><li class="chapter-item expanded "><a href="../cpp/socket.html"><strong aria-hidden="true">2.6.</strong> 网络</a></li><li class="chapter-item expanded "><a href="../cpp/wen-jian.html"><strong aria-hidden="true">2.7.</strong> 文件</a></li><li class="chapter-item expanded "><a href="../cpp/jin-cheng.html" class="active"><strong aria-hidden="true">2.8.</strong> 进程</a></li><li class="chapter-item expanded "><a href="../cpp/pthread.html"><strong aria-hidden="true">2.9.</strong> 线程</a></li><li class="chapter-item expanded "><a href="../cpp/xin-hao.html"><strong aria-hidden="true">2.10.</strong> 信号</a></li><li class="chapter-item expanded "><a href="../cpp/guan-dao.html"><strong aria-hidden="true">2.11.</strong> 管道</a></li><li class="chapter-item expanded "><a href="../cpp/shi-jian.html"><strong aria-hidden="true">2.12.</strong> 时间</a></li><li class="chapter-item expanded "><a href="../cpp/dong-tai-jia-zai-ku.html"><strong aria-hidden="true">2.13.</strong> 动态加载库</a></li><li class="chapter-item expanded "><a href="../cpp/chang-yong-suan-fa.html"><strong aria-hidden="true">2.14.</strong> 常用算法</a></li><li class="chapter-item expanded "><a href="../cpp/gcchun-bian-hui-bian.html"><strong aria-hidden="true">2.15.</strong> C调用汇编</a></li><li class="chapter-item expanded "><a href="../cpp/hui-bian-ji-cun-qi.html"><strong aria-hidden="true">2.16.</strong> 汇编寄存器</a></li><li class="chapter-item expanded "><a href="../cpp/hui-bian-chang-yong-zhi-ling.html"><strong aria-hidden="true">2.17.</strong> 汇编常用指令</a></li><li class="chapter-item expanded "><a href="../cpp/jin-cheng-du-xie-wen-jian-suo.html"><strong aria-hidden="true">2.18.</strong> 进程读写文件锁</a></li><li class="chapter-item expanded "><a href="../cpp/phpzhong-jiyu-atomic-de-zi-xuan-suo-shi-xian.html"><strong aria-hidden="true">2.19.</strong> PHP中基于atomic的自旋锁实现</a></li><li class="chapter-item expanded "><a href="../cpp/chang-liang-zi-fu-chuan-pi-liang-ying-she.html"><strong aria-hidden="true">2.20.</strong> PHP中常量字符串批量映射</a></li><li class="chapter-item expanded "><a href="../cpp/tcpudpxie-yi-xiang-jie.html"><strong aria-hidden="true">2.21.</strong> TCP/UDP包示例</a></li><li class="chapter-item expanded "><a href="../cpp/xi-tong-diao-yong-zhong-ding-yi.html"><strong aria-hidden="true">2.22.</strong> 系统函数重定义</a></li><li class="chapter-item expanded "><a href="../cpp/bit-op.html"><strong aria-hidden="true">2.23.</strong> 加减乘除位运算</a></li></ol></li><li class="chapter-item expanded "><a href="../other/SUMMARY.html"><strong aria-hidden="true">3.</strong> JS和其他笔记</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../other/react-native.html"><strong aria-hidden="true">3.1.</strong> react-native</a></li><li class="chapter-item expanded "><a href="../other/rxjs.html"><strong aria-hidden="true">3.2.</strong> rxjs</a></li><li class="chapter-item expanded "><a href="../other/vim.html"><strong aria-hidden="true">3.3.</strong> vim</a></li><li class="chapter-item expanded "><a href="../other/css-flex.html"><strong aria-hidden="true">3.4.</strong> css flex</a></li><li class="chapter-item expanded "><a href="../other/docker.html"><strong aria-hidden="true">3.5.</strong> docker</a></li><li class="chapter-item expanded "><a href="../other/es6.html"><strong aria-hidden="true">3.6.</strong> es6</a></li><li class="chapter-item expanded "><a href="../other/react.html"><strong aria-hidden="true">3.7.</strong> react</a></li></ol></li><li class="chapter-item expanded "><a href="../php/SUMMARY.html"><strong aria-hidden="true">4.</strong> PHP笔记</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../php/composer.html"><strong aria-hidden="true">4.1.</strong> composer</a></li><li class="chapter-item expanded "><a href="../php/ext.html"><strong aria-hidden="true">4.2.</strong> 扩展开发</a></li><li class="chapter-item expanded "><a href="../php/php7-feature.html"><strong aria-hidden="true">4.3.</strong> php7一些特性</a></li><li class="chapter-item expanded "><a href="../php/sort.html"><strong aria-hidden="true">4.4.</strong> php快速排序</a></li><li class="chapter-item expanded "><a href="../php/larvale.html"><strong aria-hidden="true">4.5.</strong> larvale</a></li><li class="chapter-item expanded "><a href="../php/re2candbison.html"><strong aria-hidden="true">4.6.</strong> re2c&amp;bison</a></li><li class="chapter-item expanded "><a href="../php/rabbitmq.html"><strong aria-hidden="true">4.7.</strong> rabbitmq</a></li><li class="chapter-item expanded "><a href="../php/proto.html"><strong aria-hidden="true">4.8.</strong> proto</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">shanliu blog</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/shanliu/blog" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="进程"><a class="header" href="#进程">进程</a></h1>
+<ol>
+<li>
+<p>后台进程</p>
+<pre><code class="language-c">//当 nochdir为零时，当前目录变为根目录，否则不变；
+//当 noclose为零时，标准输入、标准输出和错误输出重导向为/dev/null，也就是不输出任何信 息，否则照样输出。
+//deamon()调用了fork()，如果fork成功，那么父进程就调用_exit(2)退出，所以看到的错误信息 全部是子进程产生的。如果成功函数返回0，否则返回-1并设置errno。
+//int daemon(int nochdir, int noclose); 
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;limits.h&gt;
+defind PATH_MAX 100
+int main(int argc, char *argv[])
+{
+ char strCurPath[PATH_MAX];
+ if(daemon(1, 1) &lt; 0)
+ {
+     perror(&quot;error daemon.../n&quot;);
+     exit(1);
+ }
+ sleep(10);
+ if(getcwd(strCurPath, PATH_MAX) == NULL)
+ {
+     perror(&quot;error getcwd&quot;);
+     exit(1);
+ }
+ printf(&quot;%s/n&quot;, strCurPath);
+ return 0;
+}
+</code></pre>
+</li>
+<li>
+<p>daemon 作用类似以下代码</p>
+<pre><code class="language-c">int pid;
+pid=fork();
+if(pid&lt;0)
+exit(1);  //创建错误，退出
+else if(pid&gt;0) //父进程退出
+exit(0);
+setsid(); //使子进程成为组长
+</code></pre>
+</li>
+<li>
+<p>处理子进程结束</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;signal.h&gt;
+#include &lt;wait.h&gt;
+void sighf(int sig){
+pid_t t;
+//pid = -1 与 wait 一样
+//pid=0 同组子进程
+//pid&gt;0||pid&lt;-1 指定pid的子进程
+//option WCONTINUED 作业控制 WONHANG 不阻塞返回:0 WUNTRACRD 作业控制未报告返回
+while((t=waitpid(-1,NULL,WNOHANG))&gt;0){
+    printf(&quot;c:%d\n&quot;,t);
+}
+}
+int main(){
+sighandler_t h=signal(SIGCHLD,sighf);
+pid_t tt=fork();
+if(tt==0){
+    sleep(20);
+    exit(0);
+}
+pause();
+}
+</code></pre>
+</li>
+<li>
+<p>运行程序</p>
+<pre><code class="language-c">//exec函数,返回为子指定程序的exit值
+#include &lt;unistd.h&gt;
+int execl(const char* pathname,const char * arg,.../*(char *)0*/);
+int execv(const char* pathname,char * const argv[]);
+int execle(const char * pathname,const char *arg,...
+/*(char *)0,char * const envp[] */);
+int execve(const char *pathname,char * const argv[],char * const envp[]);
+int execlp(const char * filename,const char *arg,.../*(char *)0 */);
+int execvp(const char * filename,char * const argv[]);
+//execve 内核级调用
+//execlp execvp 从环境变量找执行文件
+//execl execle 指定执行文件 此!!!新的环境变量数组即成为新执行进程的环境变量!!!
+//exe*系列:execve fexecve  execv execle execl execvp execlp
+//第5个字符 l 表示参数列表 v 表示参数数组
+//第6个字符 e 表示指定文件 p 表示从环境中找
+</code></pre>
+<p>5.其他</p>
+</li>
+</ol>
+<pre><code>#进程标识符
+    #include &lt;unistd.h&gt;
+    1. pid_t getpid(void); 获取当前进程的ID
+    2. pid_t getppid(void); 获取父进程的ID
+    3. uid_t getuid(void); 获取进程实际用户ID
+    4. uid_t geteuid(void); 获取进程的有效用户ID
+    5. gid_t getgid(void); 获取进程的实际组ID
+    6. gid_t getegid(void); 获取进程的有效组ID
+    7. pid_t fork(void); 创建一个新进程
+        创建进程后,两个进程谁先执行是不确定的
+        IO是共享的,文件锁不会被继承,其他资源为拷贝
+    8. vfork 创建一个新进程
+        此函数不拷贝资源副本,且此函数保证子进程先执行
+
+#进程退出 
+    exit(0); 正常退出,清理运行环境
+    _Exit(); ISO C _exit(); POSIX 函数 不清理运行环境
+为正常退出 其他说明为错误退出
+    abort(); 产生SIGABRT信号,系统默认处理信号来停止
+
+#父子进程
+
+　　wait 在 SIGCHLD  信号中处理避免阻塞问题
+    #include &lt;sys/wait.h&gt;
+    父进程比子进程先停止,子进程的父进程将改为init PID:1
+    子进程比父进程先停止,子进程僵死Z,需要父进程处理:
+    1. pid_t wait (int *statloc); 
+        等待任何一个进程退出,进程阻塞
+    2. pid_t waitpid(pid_t pid,int *statloc,int option);
+         等待指定进程退出
+         pid = -1 与 wait 一样 
+         pid=0 同组子进程 
+         pid&gt;0||pid&lt;-1 指定pid的子进程
+         option WCONTINUED 作业控制 WONHANG 不阻塞返回:0 WUNTRACRD 作业控制未报告返回
+    处理 wait函数返回
+        判断statloc 值
+        WIFEXITED(statloc); 子进程正常终止
+        WIFSIGNALED(statloc); 子进程异常中止,以下为辅助宏:
+            WTERMSIG(statloc); 获取终止子进程的信号编号
+            WCOREDUMP(statloc); 判断是否产生core文件(不是所有平台都有)
+        WIFSTOPPED(statloc); 子进程处于暂停状态
+        WIFCONTINUED(statloc);作业控制继续    
+
+    3. int waitid(idtype_t idtype,id_t id.siginfo *infop,int options);
+        类似waitpid 功能
+        idtype_t 可选值 P_PID : 指定子进程ID P_PGID :指定组进程子ID P_ALL :何以子进程
+        *infop 返回子进程的状态信息
+        options 可选值 WCONTINUED WEXITED WONHANG WNOWAIT WSTOPPED
+    4. pid_t wait3(int &amp; statloc,int options,struct rusage &amp;rusage);
+    5. pid_t wait4(pid_t pid,int *statloc,int options,struct rusage *rusage);
+
+#竞争条件
+    由于两个进程谁先执行,所以进程间要相互依赖时候,需要相互等待
+
+
+
+#更改用户ID和组ID 无权限修改后值不变
+    #include &lt;unistd.h&gt;
+    1. int setuid(uid_t uid);
+    2. int setgid(gid_t gid); 
+    3. int seteuid(uid_t uid); 
+    4. int seteuid(uid_t uid); 
+
+    备注:
+    root 或chmod u+s 修改实际用户
+    root 或chmod g+s 修改实际用户组
+
+#解析器文件:
+    #include &lt;stdlib.h&gt;
+    int system(const char *cmdstring);
+    有调用此函数的程序禁止给root权限
+
+#用户标识:
+    #include &lt;unistd.h&gt;
+    char * getlogin(void); 出错返回NULL
+
+
+
+##进程关系
+#进程时间: 子进程清0
+    #include &lt;sys/times.h&gt;
+    clock_t times(struct tms *buf); 填写当前CPU时间
+        struct tms{
+            clock_t tms_utime;
+            clock_t tms_stime;
+            clock_t tms_cutime;
+            clock_t tms_cstime;
+        };
+    clock_t 为滴答数,转换秒处于系统每秒滴答数:sysconf(_SC_CLK_TCK);
+
+#进程组
+    与统一作业关联,可以接收来自同一终端的各种信号
+    进程组ID默认等于其进程ID
+    #include &lt;unistd.h&gt;
+    pid_t getpgrp(void); 取得当前进程的进程组ID
+    pid_t getpgid(pid_t pid); 获取指定进程的进程组ID 0等于getpgrp
+    int setpgid(pid_t pid,pid_t pgid); 设置进程的进程组ID
+
+#会话
+    多个进程组 组成一个会话
+    #include &lt;unistd.h&gt;
+    pid_t setsid(void); 设置一个新会话
+    pid_t getsid(pid_t pid); 获得一个会话ID
+
+
+##信号
+    linux:  &lt;bits/signal.h&gt; 
+    maxos&amp;&amp;freebsd: &lt;sys/signal.h&gt;
+    solaris: &lt;sys/iso/signal_iso.h&gt;
+    #include &lt;signal.h&gt;
+    子进程将继承父进程的信号处理方法
+#UNIX系统信号(具体:**)
+    SIGKILL 终止信号
+    SIGCHLD 子进程终止向父进程发送的信号
+    SIGCLD 系统V的子进程终止信号(不要用)
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../cpp/wen-jian.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../cpp/pthread.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../cpp/wen-jian.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../cpp/pthread.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
