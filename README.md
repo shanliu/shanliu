@@ -6,5 +6,5 @@
 - [简易ORM(Rust)](https://github.com/shanliu/sqlx-model)
 
 
-> 一些[笔记](https://github.com/shanliu/blog)
+> 一些[笔记](https://shanliu.github.io/blog)
 
