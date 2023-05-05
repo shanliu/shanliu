@@ -2,7 +2,8 @@
 
 - [lsys管理后台](ui.md)
 
-- [RUST笔记](rust/SUMMARY.md)
+- [笔记]
+ - [RUST笔记](rust/SUMMARY.md)
   - [一些概念](rust/base.md)	
   - [Trait](rust/trait.md)
   - [mod](rust/mod.md)
