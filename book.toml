@@ -16,6 +16,7 @@ mathjax-support = true
 site-url = "/blog/"
 curly-quotes = true
 git-repository-url = "https://github.com/shanliu"
+additional-js = ["book.js"]
 
 [output.html.playpen]
 editable = true
