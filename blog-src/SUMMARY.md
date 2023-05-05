@@ -1,6 +1,6 @@
 # 工作笔记
 
-- [lsys](lsys.md)
+- [lsys管理后台](ui.md)
 
 - [RUST笔记](rust/SUMMARY.md)
   - [一些概念](rust/base.md)	
