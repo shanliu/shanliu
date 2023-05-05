@@ -1,5 +1,7 @@
 # 工作笔记
 
+- [lsys](lsys.md)
+
 - [RUST笔记](rust/SUMMARY.md)
   - [一些概念](rust/base.md)	
   - [Trait](rust/trait.md)
