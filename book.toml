@@ -15,7 +15,7 @@ use-default-preprocessors = false
 mathjax-support = true
 site-url = "/blog/"
 curly-quotes = true
-git-repository-url = "https://github.com/shanliu/blog"
+git-repository-url = "https://github.com/shanliu"
 
 [output.html.playpen]
 editable = true
