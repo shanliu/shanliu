@@ -2,7 +2,7 @@
 
 - [lsys管理后台](ui.md)
 
-- 一些笔记
+> 其他一些学习笔记
 - [RUST笔记](rust/SUMMARY.md)
   - [一些概念](rust/base.md)	
   - [Trait](rust/trait.md)
