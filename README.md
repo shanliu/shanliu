@@ -9,5 +9,5 @@
 - [sqlx-model升级(Rust)](https://github.com/shanliu/sqlx-model)
 
 
-> 一些以前[笔记](https://shanliu.github.io/shanliu/)
+> 一些以前[笔记](https://www.lsys.cc/)
 
