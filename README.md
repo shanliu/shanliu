@@ -2,7 +2,7 @@
 
 > 当前在开发:
 
-- [lsys(Rust)](https://github.com/shanliu/lsys) [(在线示例)](https://www.lsys.cc/ui.html)
+- [lsys(Rust)](https://github.com/shanliu/lsys) [(在线示例)](http://175.178.90.181/ui)
 
 > 近期会开发:
 
