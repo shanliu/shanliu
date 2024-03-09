@@ -4,10 +4,6 @@
 
 - [lsys(Rust)](https://github.com/shanliu/lsys) [(在线示例)](http://lsys.cc)
 
-> 近期会开发:
-
-- [sqlx-model升级(Rust)](https://github.com/shanliu/sqlx-model)
-
 
 > 一些以前[笔记](https://blog.lsys.cc/)
 
